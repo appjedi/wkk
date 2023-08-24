@@ -1,0 +1,191 @@
+.waiting-iframe {
+    background:url(/images/loader.gif) center center no-repeat;
+  }
+
+/* 
+   = LARGE DISPLAYS   =
+   For small screens and tablets in vertical orientation, 
+   show a horizontal menubar in the header. 
+   Hide the header for screens that are large enough */
+   @media only screen and (min-width: 801px) {
+    .sm-page-layout-region-header { display: none; }
+
+    .bg {
+      opacity: 0.3;
+      position: fixed;
+      left: 0;
+      right: 0;
+      z-index: -1;
+      /* The image used 
+      background-image: url("img_girl.jpg");
+    */
+  
+      /* Full height */
+      height: 100%;
+    
+      /* Center and scale the image nicely */
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: cover;
+    }
+  }
+  
+  /* 
+     = iPads and Small Monitors  = */
+  @media only screen and (min-width: 641px) and (max-width: 800px) {
+     /* Hide the left nav bar for screens that aren't large enough */
+    .sm-page-layout-region-left { display: none; } 
+  
+     /* Move the center of the page to the left edge of the screen since the left
+         navbar is no longer there */
+    .sm-page-layout-region .sm-page-layout-region-center { margin-left: 0px !important; }
+
+    .bg {
+      opacity: 0.3;
+      position: fixed;
+      left: 0;
+      right: 0;
+      z-index: -1;
+      /* The image used 
+      background-image: url("img_girl.jpg");
+    */
+  
+      /* Full height */
+      height: 100%;
+    
+      /* Center and scale the image nicely */
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: cover;
+    }
+  
+  } 
+  
+  /* 
+     = Mobile Phones  = */
+  @media only screen and (max-width: 640px) {
+    /* Hide the header from Mobile Phones */
+    .sm-page-layout-region-header .sm-page-widget-logo,
+    .sm-page-layout-region-top .sm-page-widget-nav { display: none !important; }
+
+    .bg {
+      opacity: 0.3;
+      position: fixed;
+      left: 0;
+      right: 0;
+      z-index: -1;
+  
+      /* Full height */
+      height: 100%;
+    
+      /* Center and scale the image nicely */
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: cover;
+    }
+  }
+
+  .wkkbg {
+    opacity: 0.2;
+    position: fixed;
+    bottom: 0px;
+    right: 0px;
+    z-index: -1;
+   }
+
+   button {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    max-width: 400px;
+  }
+
+  .news .events {
+    max-width: 600px;
+    min-width: 400px;
+  }
+
+  .terms:nth-child(even) {
+    background-color:#f5f5f5
+  }
+
+  .event:nth-child(even) {
+    background-color:#f5f5f5
+  }
+  
+/* ============ desktop view ============ */
+@media all and (min-width: 992px) {
+	.navbar .nav-item .dropdown-menu{ display: none; }
+	.navbar .nav-item:hover .nav-link{   }
+	.navbar .nav-item:hover .dropdown-menu{ display: block; }
+	.navbar .nav-item .dropdown-menu{ margin-top:0; }
+}	
+/* ============ desktop view .end// ============ */
+
+/* Set the size of the div element that contains the map */
+#map {
+  height: 150px;
+  /* The height is 400 pixels */
+  width: 300px;
+  /* The width is the width of the web page */
+}
+
+
+/* Youtube lazy load */
+.wrapper {
+  max-width: 680px;
+  margin: 60px auto;
+  padding: 0 20px;
+}
+
+.youtube {
+  background-color: #000;
+  margin-bottom: 30px;
+  position: relative;
+  padding-top: 56.25%;
+  overflow: hidden;
+  cursor: pointer;
+}
+.youtube img {
+  width: 100%;
+  top: -16.82%;
+  left: 0;
+  opacity: 0.7;
+}
+.youtube .play-button {
+  width: 90px;
+  height: 60px;
+  background-color: #333;
+  box-shadow: 0 0 30px rgba( 0,0,0,0.6 );
+  z-index: 1;
+  opacity: 0.8;
+  border-radius: 6px;
+}
+.youtube .play-button:before {
+  content: "";
+  border-style: solid;
+  border-width: 15px 0 15px 26.0px;
+  border-color: transparent transparent transparent #fff;
+}
+.youtube img,
+.youtube .play-button {
+  cursor: pointer;
+}
+.youtube img,
+.youtube iframe,
+.youtube .play-button,
+.youtube .play-button:before {
+  position: absolute;
+}
+.youtube .play-button,
+.youtube .play-button:before {
+  top: 50%;
+  left: 50%;
+  transform: translate3d( -50%, -50%, 0 );
+}
+.youtube iframe {
+  height: 100%;
+  width: 100%;
+  top: 0;
+  left: 0;
+}

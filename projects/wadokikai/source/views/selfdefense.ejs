@@ -1,0 +1,82 @@
+<div class="container-fluid">
+    <h2 class=''><%=dataVideos.title%></h2>
+    <h3><%=dataVideos.para%></h3>
+
+  </div>  <!-- End of row -->
+
+<div class="accordion" id="accordionselfdefense">
+
+  <div class="card">
+    <div class="card-header" id="headingSP">
+      <h5 class="mb-0">
+        <button class="btn btn-link" type="button" data-bs-toggle="collapse" data-bs-target="#collapsSelfDefense" aria-expanded="false" aria-controls="collapsSelfDefense">
+          <%=dataVideos.specialPromotions[0].type%> 
+        </button>
+      </h5>
+    </div>
+    <div id="collapsSelfDefense" class="collapse" aria-labelledby="headingWhite" data-bs-parent="#accordionselfdefense">
+      <div class="card-body">
+          <% for (let i = 0; i < dataVideos.specialPromotions.length; i += 1) { %>
+            <div class="youtube" data-embed='<%-dataVideos.specialPromotions[i].videoID%>'> 
+
+                <!-- (2) the "play" button -->
+                <div class="play-button"></div> 
+
+            </div>
+            <!-- 
+              <div class='embed-responsive embed-responsive-16by9'><%=dataVideos.specialPromotions[i].name%><%-dataVideos.specialPromotions[i].url%></div>-->
+          <% } %>
+      </div>
+    </div>
+  </div>
+
+    <div class="card">
+      <div class="card-header" id="headingSD">
+        <h5 class="mb-0">
+          <button class="btn btn-link" type="button" data-bs-toggle="collapse" data-bs-target="#collapsSelfDefense" aria-expanded="false" aria-controls="collapsSelfDefense">
+            <%=dataVideos.selfdefense[0].type%> 
+          </button>
+        </h5>
+      </div>
+      <div id="collapsSelfDefense" class="collapse" aria-labelledby="headingWhite" data-bs-parent="#accordionselfdefense">
+        <div class="card-body">
+            <% for (let i = 0; i < dataVideos.selfdefense.length; i += 1) { %>
+              <div class="youtube" data-embed='<%-dataVideos.selfdefense[i].videoID%>'> 
+  
+                  <!-- (2) the "play" button -->
+                  <div class="play-button"></div> 
+  
+              </div>
+              <!-- 
+                <div class='embed-responsive embed-responsive-16by9'><%=dataVideos.selfdefense[i].name%><%-dataVideos.selfdefense[i].url%></div>-->
+            <% } %>
+        </div>
+      </div>
+    </div>
+
+
+    <div class="card">
+      <div class="card-header" id="headingMisc">
+        <h5 class="mb-0">
+          <button class="btn btn-link collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseGeneral" aria-expanded="false" aria-controls="collapseGeneral">
+            <%=dataVideos.misc[0].type%>
+          </button>
+        </h5>
+      </div>
+      <div id="collapseGeneral" class="collapse" aria-labelledby="collapseGeneral" data-bs-parent="#accordionselfdefense">
+        <div class="card-body">
+            <% for (let i = 0; i < dataVideos.misc.length; i += 1) { %>
+              <div class="youtube" data-embed='<%-dataVideos.misc[i].videoID%>'> 
+  
+                  <!-- (2) the "play" button -->
+                  <div class="play-button"></div> 
+  
+              </div>
+              <!-- 
+                <div class='embed-responsive embed-responsive-16by9'><%=dataVideos.misc[i].name%><%-dataVideos.misc[i].url%></div>-->
+            <% } %>
+        </div>
+      </div>
+    </div>
+
+  </div> <!-- End of Accordion -->

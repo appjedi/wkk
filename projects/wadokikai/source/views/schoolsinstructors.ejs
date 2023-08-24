@@ -1,0 +1,13 @@
+
+Instructors: 
+<div class="p-2">
+    Head Instructor: <%=schools[i].headInstructor%> <br/>
+    <div class="p-2">
+        
+    <% if (schools[i].assistantInstructor.length >= 1 && schools[i].assistantInstructor[0] != ""  ) { %>
+        <%schools[i].assistantInstructor.forEach ((instructor)=> { %>
+            Assistant Instructor: <%=instructor%> <br/>
+        <% }) %>
+    <% } %>
+    </div><!-- Assit Instructors END --> 
+</div><!-- Head Instructors END --> 

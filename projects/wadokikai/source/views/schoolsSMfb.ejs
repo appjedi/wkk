@@ -1,0 +1,10 @@
+<% let link = ""; let text = ""; %> 
+<% Object.keys(schools[i].socialMediaFB).forEach(function(prop) { %>
+  <% if (prop === 'text') text = schools[i].socialMediaFB[prop] %> 
+  <% if (prop === 'link') link = schools[i].socialMediaFB[prop] %> 
+  <% if (link !== '') { %> 
+    <div id="SocialMediaFB<%=i%>" class="p-1">
+      <a href=<%=link%>><img src='/images/fbpic.webp'></a>  
+    </div> <!-- Social FB END -->
+    <% } %> 
+<% }); %>

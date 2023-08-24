@@ -1,0 +1,147 @@
+<div class="container-fluid">
+    <div class='row p-2' >
+      <h2 class=''><%=dataShinko.title%></h2>
+      <h3><%=dataShinko.para%></h3>
+    </div>  
+
+    <div class="accordion" id="accordionShinkoKatas">
+        <div class="card">
+        <div class="card-header" id="headingWhiteSK">
+            <h5 class="mb-0">
+            <button class="btn btn-link" type="button" data-bs-toggle="collapse" data-bs-target="#collapseWhiteSK" aria-expanded="false" aria-controls="collapseWhiteSK">
+                <%=dataShinko.white[0].Rank%> 
+            </button>
+            </h5>
+        </div>
+        
+        <div id="collapseWhiteSK" class="collapse" aria-labelledby="headingWhiteSK"  data-bs-parent="#accordionShinkoKatas">
+            <div class="card-body">
+                <% for (let i = 0; i < dataShinko.white.length; i += 1) { %>
+                    <div class="youtube" data-embed='<%-dataShinko.white[i].videoID%>'> 
+ 
+                        <!-- (2) the "play" button -->
+                        <div class="play-button"></div> 
+                         
+                    </div>
+                    <!-- <div class='embed-responsive embed-responsive-16by9'><%=dataShinko.white[i].Name%><%-dataShinko.white[i].URL%></div> -->
+                <% } %>
+            </div>
+        </div>
+        </div>
+
+        <div class="card">
+        <div class="card-header" id="headingYellowSK">
+            <h5 class="mb-0">
+            <button class="btn btn-link collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseYellowSK" aria-expanded="false" aria-controls="collapseYellowSK">
+                <%=dataShinko.yellowAndOrange[0].Rank%>  
+            </button>
+            </h5>
+        </div>
+        <div id="collapseYellowSK" class="collapse" aria-labelledby="headingYellowSK"  data-bs-parent="#accordionShinkoKatas">
+            <div class="card-body">
+                <% for (let i = 0; i < dataShinko.yellowAndOrange.length; i += 1) { %>
+                    <div class="youtube" data-embed='<%-dataShinko.yellowAndOrange[i].videoID%>'> 
+ 
+                        <!-- (2) the "play" button -->
+                        <div class="play-button"></div> 
+                         
+                    </div>
+                    <!-- <div class='embed-responsive embed-responsive-16by9'><%=dataShinko.yellowAndOrange[i].Name%><br/><%-dataShinko.yellowAndOrange[i].URL%></div> -->
+                <% } %>
+            </div>
+        </div>
+        </div>
+
+        <div class="card">
+        <div class="card-header" id="headingGreenSK">
+            <h5 class="mb-0">
+            <button class="btn btn-link collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseGreenSK" aria-expanded="false" aria-controls="collapseGreenSK">
+                <%=dataShinko.green[0].Rank%> 
+            </button>
+            </h5>
+        </div>
+        <div id="collapseGreenSK" class="collapse" aria-labelledby="headingGreenSK"  data-bs-parent="#accordionShinkoKatas">
+            <div class="card-body">
+            <% for (let i = 0; i < dataShinko.green.length; i += 1) { %>
+                <div class="youtube" data-embed='<%-dataShinko.green[i].videoID%>'> 
+
+                    <!-- (2) the "play" button -->
+                    <div class="play-button"></div> 
+
+                </div>
+                <!-- <div class='embed-responsive embed-responsive-16by9'><%=dataShinko.green[i].Name%><%-dataShinko.green[i].URL%></div> -->
+            <% } %>
+            </div>
+        </div>
+        </div>
+
+        <div class="card">
+        <div class="card-header" id="headingBlueSK">
+            <h5 class="mb-0">
+            <button class="btn btn-link collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseBlueSK" aria-expanded="false" aria-controls="collapseBlueSK">
+                <%=dataShinko.blue[0].Rank%> 
+            </button>
+            </h5>
+        </div>
+        <div id="collapseBlueSK" class="collapse" aria-labelledby="headingBlueSK"  data-bs-parent="#accordionShinkoKatas">
+            <div class="card-body">
+            <% for (let i = 0; i < dataShinko.blue.length; i += 1) { %>
+                <div class="youtube" data-embed='<%-dataShinko.blue[i].videoID%>'> 
+
+                    <!-- (2) the "play" button -->
+                    <div class="play-button"></div> 
+
+                </div>
+                <!-- <div class='embed-responsive embed-responsive-16by9'><%=dataShinko.blue[i].Name%><%-dataShinko.blue[i].URL%></div> -->
+            <% } %>
+            </div>
+        </div>
+        </div>
+
+        <div class="card">
+        <div class="card-header" id="headingPurpleSK">
+            <h5 class="mb-0">
+            <button class="btn btn-link collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapsePurpleSK" aria-expanded="false" aria-controls="collapsePurpleSK">
+                <%=dataShinko.purple[0].Rank%>
+            </button>
+            </h5>
+        </div>
+        <div id="collapsePurpleSK" class="collapse" aria-labelledby="headingPurpleSK"  data-bs-parent="#accordionShinkoKatas">
+            <div class="card-body">
+            <% for (let i = 0; i < dataShinko.purple.length; i += 1) { %>
+                <div class="youtube" data-embed='<%-dataShinko.purple[i].videoID%>'> 
+
+                    <!-- (2) the "play" button -->
+                    <div class="play-button"></div> 
+
+                </div>
+                <!-- <div class='embed-responsive embed-responsive-16by9'><%=dataShinko.purple[i].Name%><%-dataShinko.purple[i].URL%></div> -->
+            <% } %>
+            </div>
+        </div>
+        </div>
+
+        <div class="card">
+        <div class="card-header" id="headingBrownSK">
+            <h5 class="mb-0">
+            <button class="btn btn-link collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseBrownSK" aria-expanded="false" aria-controls="collapseBrownSK">
+                <%=dataShinko.brown[0].Rank%> 
+            </button>
+            </h5>
+        </div>
+        <div id="collapseBrownSK" class="collapse" aria-labelledby="headingBrownSK"  data-bs-parent="#accordionShinkoKatas">
+            <div class="card-body">
+            <% for (let i = 0; i < dataShinko.brown.length; i += 1) { %>
+                <div class="youtube" data-embed='<%-dataShinko.brown[i].videoID%>'> 
+
+                    <!-- (2) the "play" button -->
+                    <div class="play-button"></div> 
+
+                </div>
+                <!-- <div class='embed-responsive embed-responsive-16by9'><%=dataShinko.brown[i].Name%><%-dataShinko.brown[i].URL%></div> -->
+            <% } %>
+            </div>
+        </div>
+    </div>                   
+    </div> <!-- End of Accordion -->
+</div>  <!-- ends container div -->

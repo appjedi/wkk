@@ -1,0 +1,23 @@
+<div id="Schedule<%=i%>"  class="p-1">
+
+    <div class="row row-cols-sm-2 row-cols-md-3 row-cols-lg-3 row-cols-xl-3">
+        <% let day = ""; let time = "";  let rank = ""; let sensei = "";%> 
+        <% for (let j = 0; j < schools[i].classes.length; j++ ) { %> 
+            <% Object.keys(schools[i].classes[j]).forEach(function(prop) { %>
+            <% if (prop === 'day') day = schools[i].classes[j][prop] %> 
+            <% if (prop === 'time') time = schools[i].classes[j][prop] %> 
+            <% if (prop === 'ranks') rank = schools[i].classes[j][prop] %> 
+            <% if (prop === 'sensei') sensei = schools[i].classes[j][prop] %> 
+                <%schools[i].classes[j]%>
+            <% }); %>
+            <div class="col mb-4">
+                <div class="card">
+                    <div class='card-body text-center'>
+                        <%=day%> <br/>  <%=time%>  <br/>  <%=rank%>  <br/>  <%=sensei%> 
+                    </div>
+                </div>
+            </div>
+        <% } %>   
+    </div>    
+
+</div>

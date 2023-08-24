@@ -1,0 +1,226 @@
+<div class="container-fluid">
+  <div class='row m-2' >
+    <h2 class=''><%=dataKata.title%></h2>
+    <h3><%=dataKata.para%></h3>
+  </div>  
+
+  <div class="accordion" id="accordionKatas">
+    <div class="card">
+      <div class="card-header" id="headingWhite">
+        <h5 class="mb-0">
+          <button class="btn btn-link" type="button" data-bs-toggle="collapse" data-bs-target="#collapseWhite" aria-expanded="false" aria-controls="collapseWhite">
+            <%=dataKata.white[0].Rank%> (Taikyoku shodan, nidan, sandan, yodon )
+          </button>
+        </h5>
+      </div>
+      
+      <div id="collapseWhite" class="collapse" aria-labelledby="headingWhite" data-bs-parent="#accordionKatas">
+        <div class="card-body">
+            <% for (let i = 0; i < dataKata.white.length; i += 1) { %>
+              <div class="youtube" data-embed='<%-dataKata.white[i].videoID%>'> 
+
+                  <!-- (2) the "play" button -->
+                  <div class="play-button"></div> 
+
+              </div>
+              <!-- 
+                <div class='embed-responsive embed-responsive-16by9'><%=dataKata.white[i].Name%><%-dataKata.white[i].URL%></div>-->
+            <% } %>
+        </div> <!--  card-body  -->
+      </div> <!--  collapseWhite  -->
+    </div> <!--  card  -->
+
+    <div class="card">
+      <div class="card-header" id="headingYellow">
+        <h5 class="mb-0">
+          <button class="btn btn-link collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseYellow" aria-expanded="false" aria-controls="collapseYellow">
+            <%=dataKata.yellow[0].Rank%>  (Pingan shodan, nidan, sandan )
+          </button>
+        </h5>
+      </div>
+      <div id="collapseYellow" class="collapse" aria-labelledby="headingYellow" data-bs-parent="#accordionKatas">
+        <div class="card-body">
+            <% for (let i = 0; i < dataKata.yellow.length; i += 1) { %>
+              <div class="youtube" data-embed='<%-dataKata.yellow[i].videoID%>'> 
+
+                  <!-- (2) the "play" button -->
+                  <div class="play-button"></div> 
+
+              </div>
+              <!-- 
+                <div class='embed-responsive embed-responsive-16by9'><%=dataKata.yellow[i].Name%><%-dataKata.yellow[i].URL%></div>-->
+            <% } %>
+        </div> <!--  card-body  -->
+      </div> <!--  collapseYellow  -->
+    </div> <!--  card  -->
+
+    <div class="card">
+      <div class="card-header" id="headingOrange">
+        <h5 class="mb-0">
+          <button class="btn btn-link collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOrange" aria-expanded="false" aria-controls="collapseOrange">
+            <%=dataKata.orange[0].Rank%>  (Pingan yodon, godan, Nahanchi shodan)
+          </button>
+        </h5>
+      </div>
+      <div id="collapseOrange" class="collapse" aria-labelledby="headingOrange" data-bs-parent="#accordionKatas">
+        <div class="card-body">
+            <% for (let i = 0; i < dataKata.orange.length; i += 1) { %>
+              <div class="youtube" data-embed='<%-dataKata.orange[i].videoID%>'> 
+
+                  <!-- (2) the "play" button -->
+                  <div class="play-button"></div> 
+
+              </div>
+              <!-- 
+                <div class='embed-responsive embed-responsive-16by9'><%=dataKata.orange[i].Name%><%-dataKata.orange[i].URL%></div>-->
+            <% } %>
+        </div> <!--  card-body  -->
+      </div> <!--  collapseOrange  -->
+    </div> <!--  card  -->
+
+    <div class="card">
+      <div class="card-header" id="headingGreen">
+        <h5 class="mb-0">
+          <button class="btn btn-link collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseGreen" aria-expanded="false" aria-controls="collapseGreen">
+            <%=dataKata.green[0].Rank%> (Jion, Saiffa)
+          </button>
+        </h5>
+      </div>
+      <div id="collapseGreen" class="collapse" aria-labelledby="headingGreen" data-bs-parent="#accordionKatas">
+        <div class="card-body">
+          <% for (let i = 0; i < dataKata.green.length; i += 1) { %>
+            <div class="youtube" data-embed='<%-dataKata.green[i].videoID%>'> 
+
+                <!-- (2) the "play" button -->
+                <div class="play-button"></div> 
+
+            </div>
+            <!-- 
+              <div class='embed-responsive embed-responsive-16by9'><%=dataKata.green[i].Name%><%-dataKata.green[i].URL%></div>-->
+          <% } %>
+        </div> <!--  card-body  -->
+      </div> <!--  collapseGreen  -->
+    </div> <!--  card  -->
+
+    <div class="card">
+      <div class="card-header" id="headingBlue">
+        <h5 class="mb-0">
+          <button class="btn btn-link collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseBlue" aria-expanded="false" aria-controls="collapseBlue">
+            <%=dataKata.blue[0].Rank%> (Potsai dai, Chinto)
+          </button>
+        </h5>
+      </div>
+      <div id="collapseBlue" class="collapse" aria-labelledby="headingBlue" data-bs-parent="#accordionKatas">
+        <div class="card-body">
+          <% for (let i = 0; i < dataKata.blue.length; i += 1) { %>
+            <div class="youtube" data-embed='<%-dataKata.blue[i].videoID%>'> 
+
+                <!-- (2) the "play" button -->
+                <div class="play-button"></div> 
+
+            </div>
+            <!-- 
+              <div class='embed-responsive embed-responsive-16by9'><%=dataKata.blue[i].Name%><%-dataKata.blue[i].URL%></div>-->
+          <% } %>
+        </div> <!--  card-body  -->
+      </div> <!--  collapseBlue  -->
+    </div> <!--  card  -->
+
+    <div class="card">
+      <div class="card-header" id="headingPurple">
+        <h5 class="mb-0">
+          <button class="btn btn-link collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapsePurple" aria-expanded="false" aria-controls="collapsePurple">
+            <%=dataKata.purple[0].Rank%> (Unsa, Empi)
+          </button>
+        </h5>
+      </div>
+      <div id="collapsePurple" class="collapse" aria-labelledby="headingPurple" data-bs-parent="#accordionKatas">
+        <div class="card-body">
+          <% for (let i = 0; i < dataKata.purple.length; i += 1) { %>
+            <div class="youtube" data-embed='<%-dataKata.purple[i].videoID%>'> 
+
+                <!-- (2) the "play" button -->
+                <div class="play-button"></div> 
+
+            </div>
+            <!-- 
+              <div class='embed-responsive embed-responsive-16by9'><%=dataKata.purple[i].Name%><%-dataKata.purple[i].URL%></div>-->
+          <% } %>
+        </div> <!--  card-body  -->
+      </div> <!--  collapsePurple  -->
+    </div> <!--  card  -->
+
+    <div class="card">
+      <div class="card-header" id="headingBrown3">
+        <h5 class="mb-0">
+          <button class="btn btn-link collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseBrown3" aria-expanded="false" aria-controls="collapseBrown3">
+            <%=dataKata.brown3[0].Rank%> (Seisan, Sushi No Sho Bo, Gay Pa Sai)
+          </button>
+        </h5>
+      </div>
+      <div id="collapseBrown3" class="collapse" aria-labelledby="headingBrown3" data-bs-parent="#accordionKatas">
+        <div class="card-body">
+          <% for (let i = 0; i < dataKata.brown3.length; i += 1) { %>
+            <div class="youtube" data-embed='<%-dataKata.brown3[i].videoID%>'> 
+
+                <!-- (2) the "play" button -->
+                <div class="play-button"></div> 
+
+            </div>
+            <!-- 
+              <div class='embed-responsive embed-responsive-16by9'><%=dataKata.brown3[i].Name%><%-dataKata.brown3[i].URL%></div>-->
+          <% } %>
+        </div> <!--  card-body  -->
+      </div> <!--  collapseBrown3  -->
+    </div> <!--  card  -->
+
+    <div class="card">
+      <div class="card-header" id="headingBrown2">
+        <h5 class="mb-0">
+          <button class="btn btn-link collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseBrown2" aria-expanded="false" aria-controls="collapseBrown2">
+            <%=dataKata.brown2[0].Rank%> (Kusanku sho, Soea Sai)
+          </button>
+        </h5>
+      </div>
+      <div id="collapseBrown2" class="collapse" aria-labelledby="headingBrown2" data-bs-parent="#accordionKatas">
+        <div class="card-body">
+          <% for (let i = 0; i < dataKata.brown2.length; i += 1) { %>
+            <div class="youtube" data-embed='<%-dataKata.brown2[i].videoID%>'> 
+
+                <!-- (2) the "play" button -->
+                <div class="play-button"></div> 
+
+            </div>
+            <!-- 
+              <div class='embed-responsive embed-responsive-16by9'><%=dataKata.brown2[i].Name%><%-dataKata.brown2[i].URL%></div>-->
+          <% } %>
+        </div> <!--  card-body  -->
+      </div> <!--  collapseBrown2  -->
+    </div> <!--  card  -->
+
+    <div class="card">
+      <div class="card-header" id="headingBrown1">
+        <h5 class="mb-0">
+          <button class="btn btn-link collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseBrown1" aria-expanded="false" aria-controls="collapseBrown1">
+            <%=dataKata.brown1[0].Rank%> (Sakagawa Bo, Giokerin Sai)
+          </button>
+        </h5>
+      </div>
+      <div id="collapseBrown1" class="collapse" aria-labelledby="headingBrown1" data-bs-parent="#accordionKatas">
+        <div class="card-body">
+          <% for (let i = 0; i < dataKata.brown1.length; i += 1) { %>
+            <div class="youtube" data-embed='<%-dataKata.brown1[i].videoID%>'> 
+
+                <!-- (2) the "play" button -->
+                <div class="play-button"></div> 
+
+            </div>
+            <!-- 
+              <div class='embed-responsive embed-responsive-16by9'><%=dataKata.brown1[i].Name%><%-dataKata.brown1[i].URL%></div>-->
+          <% } %>
+        </div> <!--  card-body  -->
+      </div> <!--  collapseBrown1  -->
+    </div> <!--  card  -->
+
+  </div> <!-- End of Accordion -->
+</div>  <!-- ends container div -->

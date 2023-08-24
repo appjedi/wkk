@@ -1,0 +1,81 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+    <head>
+      <%-include('head.ejs') %>            
+    </head>
+
+    <body>
+      <%- include('mainNav.ejs', {navNuMain: navNuMain}) %>
+      <%- include('pageNav.ejs', {nav: nav}) %>
+
+
+        <div id="instructors">
+          <%- include('instructors.ejs', {instructors: instructors}) %>
+        </div> <!-- instructors END  -->
+ 
+
+        <div id="schools" class="container-fluid">
+          <div >
+            <h2>Wado Ki Kai Schools </h2>
+          </div>
+          <div class="row justify-content-center">
+            <%for (let i = 0; i < schools.length; i++) { %>
+              <div class="card m-2" style='max-width: 550px;'>
+                <div id="header<%=i%>" class="card-header">
+                  <h3><%=schools[i].schoolName%>, <%=schools[i].city%>, <%=schools[i].state%>.</h3>
+                </div>
+                <div id="image<%=i%>">
+                  <img class="img-fluid card-img-top" src="<%=schools[i].image%>" alt="School">
+                </div>
+                <div class="card-body">
+                  <div id="Instructors<%=i%>" class="p-1">
+                    <%- include('schoolsinstructors.ejs', {i: i}) %>
+                  </div>  <!-- Instructors END --> 
+
+                  <div class="row">
+                    <div id="locationMap<%=i%>" class="p-2">
+                      <%- include('map.ejs', {i}) %>
+                    </div> <!-- address END -->
+                    <div id="Address<%=i%>" class="p-2">
+                      <%- include('schooladdress.ejs', {i: i}) %>
+                    </div> <!-- address END -->
+
+                    <div id="pricing<%=i%>" class="p-2">
+                      <%- include('pricing.ejs', {i}) %>
+                    </div> <!-- address END -->
+                  </div>
+                  <div class="row">  
+                    <div id="SocialMediaFB<%=i%>" class="p-1">
+                      <%- include('schoolsSMfb.ejs', {i: i}) %>
+                    </div> <!-- Social FB END -->
+
+                    <div id="SocialMediaIG<%=i%>"  class="p-1">
+                      <%- include('schoolsSMig.ejs', {i: i}) %>
+                    </div> <!-- SocialMediaIG END-->
+                  </div>
+                  <div id="Notes<%=i%>" class="p-1">
+                    <%- include('schoolsnotes.ejs', {i: i}) %>
+                  </div>
+
+                  <div id="Schedule<%=i%>"  class="p-1">
+                      <%- include('schoolschedules.ejs', {i: i}) %>
+                  </div> <!-- Schedule END-->
+                </div>  <!-- Card Body END-->
+                
+              </div> <!-- Card END-->
+              <% } %>
+            </div>
+          </div><!-- ends ROW div -->
+        </div> <!-- ends container div -->
+
+        <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" 
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" 
+        crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" 
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" 
+        crossorigin="anonymous"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" 
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" 
+        crossorigin="anonymous"></script>
+    </body>
+</html>

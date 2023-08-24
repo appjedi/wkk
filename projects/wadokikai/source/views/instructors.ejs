@@ -1,0 +1,31 @@
+<!-- starts container and its child elements >> relative position -->
+<div class="container">
+    <h3>Wado Ki Kai Instructors </h3>
+
+    <div class="row row-cols-sm-2 row-cols-md-3 row-cols-lg-3 row-cols-xl-3">
+        <%for (let i = 0; i < instructors.length; i++) { %>
+            <div class="col mb-4">
+                <div class="card" style='max-width: 300px; min-width: 200px;' >
+                    <div class="card-body text-danger">
+                        <h3><%=instructors[i].name%></h3>
+                        <strong>Rank:</strong> <%=instructors[i].rank%> <br/>
+                        <strong>School(s):</strong>  <%=instructors[i].locationName%> <br/>
+                        <strong>Notes:</strong> <%=instructors[i].note%>  <br/>
+                        
+                    </div>  <!-- Card Body END-->
+                    <img class="card-img-bottom" src="<%=instructors[i].image%>" alt="Instructors image">
+                </div> <!-- Card END-->
+            </div> <!-- Col END-->
+            <% if ((i+1) == 2 || (i+1) == 4 || (i+1) == 6 || (i+1) == 8 || (i+1) == 10 || (i+1) == 12 || (i+1) == 14 || (i+1) == 16 || (i+1) == 18 || (i+1) == 20  || (i+1) == 22 || (i+1) == 24 || (i+1) == 26 || (i+1) == 28 || (i+1) == 30 ) { %>
+                <div class="w-100 d-none d-sm-block d-md-none"><!-- wrap every 2 on sm--></div> 
+                <div class="w-100 d-none d-xs-block d-sm-none"><!-- wrap every 2 on xsm--></div> 
+            <% } %>
+            <% if ((i+1) == 3 || (i+1) == 6 || (i+1) == 9 || (i+1) == 12 || (i+1) == 15 || (i+1) == 18 || (i+1) == 21 || (i+1) == 24 || (i+1) == 27 || (i+1) == 30 || (i+1) == 33 ) { %> 
+                <div class="w-100 d-none d-md-block d-lg-none"><!-- wrap every 3 on md--></div> 
+                <div class="w-100 d-none d-lg-block d-xl-none"><!-- wrap every 4 on lg--></div> 
+                <div class="w-100 d-none d-xl-block"><!-- wrap every 5 on xl--></div>
+            <% } %>
+        <% } %>
+    </div> <!-- row END-->
+</div> <!-- container END-->
+

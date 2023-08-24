@@ -1,0 +1,162 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+    <%- include('head.ejs', {navNuMain}); %>
+  </head>
+
+  <body>
+    <%- include('mainNav.ejs', {navNuMain}); %>
+
+    <%- include('pageNav.ejs', {nav}); %>
+
+    <!-- starts container and its child elements >> relative position -->
+    <div id='events' class="container">
+      <h1><%=title%> - <%=data.main.title%> </h1>
+
+      <p><%=data.main.para%></p>
+
+
+      <div class="justify-content-center">
+        <% if (specialclassesShow) { %>
+        <div class="card m-3">
+          <div class="card-header">
+            <h3>Special Classes</h3>
+          </div> <!-- Card header -->
+          <div class="card-body">
+            If you would like to have your special class appear in this list please send an email to events@wadokikai.org.
+            <br/>
+            <br/>
+            <% for(let i = 0; i < specialclasses.specialclasses.length; i++) { %>
+              <% if (specialclasses.specialclasses[i].date > currentdate) { %>
+              <div id="SpecialClasses<%i%>" class="row event m-2"> 
+                <div class="col">
+                  <%=specialclasses.specialclasses[i].title%>
+                </div>
+                <div class="col">
+                  <%=moment(specialclasses.specialclasses[i].date).format('MMMM Do, YYYY')%>
+                  <%=specialclasses.specialclasses[i].time%>
+                  <a class="btn btn-primary" href="<%=specialclasses.specialclasses[i].registerLink%>"><%=specialclasses.specialclasses[i].registerText%></a>
+                </div>
+              </div>
+              <% } %> <!-- if -->  
+            <% } %> 
+          </div> <!-- Card body -->
+          <div class="card-footer">
+            <a class="btn btn-primary" href="<%=specialclasses.specialclasseslistlink%>"><%=specialclasses.specialclasseslisttext%></a>
+          </div>
+        </div> <!-- Card  -->
+        <% } %> 
+
+        <% if (promotionsShow) { %>
+        <div class="card m-3">
+          <div class="card-header">
+            <h3>Promotions</h3>
+          </div> <!-- Card header -->
+          <div class="card-body">
+            If you would like to have your promotion appear in this list please send an email to events@wadokikai.org.
+            <br/>
+            <br/>
+            <% for(let i = 0; i < promotions.promotions.length; i++) { %>
+              <% if (promotions.promotions[i].dt > currentdate) { %>
+                <div id="Promotions" class="row event m-2"> 
+                  <div class="col">
+                    <%=promotions.promotions[i].title%>
+                  </div>
+                  <div class="col">
+                    <%=moment(promotions.promotions[i].dt).format('MMMM Do, YYYY')%>
+                  </div>
+                  <div class="col">
+                    <%=promotions.promotions[i].time%>
+                  </div>
+                  <div class="col">
+                    <%=promotions.promotions[i].note%>
+                  </div>
+                </div>  
+                <% } %> 
+            <% } %> 
+          </div> <!-- Card body -->
+          <div class="card-footer">
+            <a class="btn btn-primary" href="<%=promotions.promotionemaillistlink%>"><%=promotions.promotionemaillisttext%></a>
+          </div>
+        </div> <!-- Card  -->
+        <% } %> 
+          
+        <% if (tournamentsShow) { %> 
+        <div class="card m-3">
+          <div class="card-header">
+            <h3>Tournaments</h3>
+          </div> <!-- Card header -->
+          <div class="card-body">
+            If you would like to have your tournament to appear in this list please send an email to events@wadokikai.org.
+            <br/>
+            <br/>
+            <% for(let i = 0; i < tournaments.tournaments.length; i++) { %>
+              <% if (tournaments.tournaments[i].dt > currentdate) { %>
+              <div id="Tournaments" class="row event m-2"> 
+                <div class="col">
+                  <% if (tournaments.tournaments[i].flyer) { %>
+                    <a href='<%=tournaments.tournaments[i].flyer%>' target="_blank"><%=tournaments.tournaments[i].title%></a>
+                  <% } else { %> 
+                    <%=tournaments.tournaments[i].title%>
+                  <% } %> 
+                </div>
+                <div class="col">
+                  <% if (tournaments.tournaments[i].notelink) { %>
+                    <a href='<%=tournaments.tournaments[i].notelink%>' target="_blank" ><%= tournaments.tournaments[i].note %></a>
+                    <% } else { %> 
+                      <%= tournaments.tournaments[i].note %>
+                    <% } %> 
+                  
+                </div>
+                <div class="col">
+                  <%= tournaments.tournaments[i].location %>
+                </div>
+                <div class="col">
+                  <%= moment(tournaments.tournaments[i].dt).format('MMMM Do, YYYY'); %>
+                </div>
+              </div> 
+              <% } %> 
+            <% } %> 
+          </div> <!-- Card body -->
+          <div class="card-footer">
+            <a class="btn btn-primary" href="<%=tournaments.tournamentsemaillistlink%>"><%=tournaments.tournamentsemaillisttext%></a>
+          </div>
+        </div> <!-- Card  -->
+        <% } %> 
+
+        <% if (blackbeltclassesShow) { %> 
+        <div class="card m-3">
+          <div class="card-header">
+          <h3>Black Belt Classes</h3>
+        </div> <!-- Card header -->
+        <div class="card-body">
+          Generaly black belt classes are held the first Saturday of every month at 12:00pm at the Alameda Fitness and Spa club (in Alameda). *if the first Saturday is on a holiday weekend we usually move it to the following Saturday.
+          If you would like to host or have your black belt class appear in this list please send an email to events@wadokikai.org.
+          <br/>
+          <br/>
+          <% for(let i = 0; i < blackbeltclasses.blackbeltclasses.length; i++) { %>
+            <% if (blackbeltclasses.blackbeltclasses[i].dt > currentdate ) { %>
+            <div id="BlackBeltClasses" class="row event m-2"> 
+              <div class="col">
+                <%=blackbeltclasses.blackbeltclasses[i].title%>
+              </div>
+              <div class="col">
+                <%= moment(blackbeltclasses.blackbeltclasses[i].dt).format('MMMM Do, YYYY'); %>
+              </div>
+            </div> 
+            <% } %> 
+          <% } %> 
+        </div> <!-- Card body -->
+        <div class="card-footer">
+          <a class="btn btn-primary" href="<%=blackbeltclasses.blackbeltclassesemaillistlink%>"><%=blackbeltclasses.blackbeltclassesemaillisttext%></a>
+        </div>
+      </div> <!-- Card  -->
+      <% } %> 
+    </div>
+  </div>  <!-- ends container div -->
+  
+  
+  <%- include('footer.ejs'); %>
+    <%- include('scripts.ejs'); %>
+  </body>
+</html>

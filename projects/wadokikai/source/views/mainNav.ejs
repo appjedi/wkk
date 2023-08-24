@@ -1,0 +1,27 @@
+<img class='wkkbg' src="../images/wkkpatch22_med.png">
+
+<nav class="container-fluid navbar navbar-fixed-top bg-primary navbar-dark">
+  <div class="container-fluid">
+    <a class="navbar-brand  d-none d-md-block" href="<%=navNuMain[0].URL%>">
+      <img class="nav-brand-img" src="/images/wkkpatch22_med.png" width='139px' heigth='137px' alt="">
+    </a>
+    <div class="navbar" id="navbarNavMarkup">
+      <div class="navbar-nav navbar-expand">
+        <ul class="nav navbar-nav justify-content-center">
+          <% for (let i = 0; i< navNuMain.length; i++) { %>
+            <% if ( navNuMain[i].URL === activePage ) { %>
+              <li class="nav-item"><a class="nav-link active" href="<%=navNuMain[i].URL%>"><%=navNuMain[i].Text%></a></li>
+            <% } else { %> 
+              <% var link = 'Facebook Page'; %>
+              <% if ( navNuMain[i].Text === link ) { %>
+                <li class="nav-item"><a class="nav-link" href="<%=navNuMain[i].URL%>" target="_blank">FB </a></li>
+              <% } else { %> 
+                <li class="nav-item"><a class="nav-link" href="<%=navNuMain[i].URL%>"><%=navNuMain[i].Text%> </a></li>
+              <% } %>
+            <% } %>
+          <% } %>
+        </ul>
+      </div>
+    </div>
+  </div>
+</nav>

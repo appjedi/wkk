@@ -1,0 +1,33 @@
+<div class="display-5 m-3">
+    Black Belt Class Email List
+</div>
+
+<div class="justify-content-center">
+    
+    <div class="card m-3">
+        <div class="card-body">
+            
+            <% for(let i = 0; i < eventListTour.length; i++) { %>
+            <div id="elistbbc<%i%>" class="row event m-2"> 
+                <div class="col">
+                <%=eventListBB[i].name%>
+                </div>
+                <div class="col">
+                <%=eventListBB[i].email%>
+                </div>
+                <div class="col">
+                <%=eventListBB[i].phone%>
+                </div>
+                <div class="col">
+                <%=moment(eventListBB[i].dateJoined).format('MMMM Do, YYYY')%>
+                </div>
+
+            </div>  
+            <%   }  %>
+
+          </div> <!-- Card body -->
+        </div> <!-- Card  -->
+
+
+
+</div> <!-- ends justify-content-center div -->

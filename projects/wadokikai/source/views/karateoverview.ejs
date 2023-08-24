@@ -1,0 +1,82 @@
+<div class='row p-2' >
+    <h1 class='float'><%=OVmain.title%></h1>
+</div>  
+
+
+<% if (OVsection1) { %>
+  <div class="row p-2">
+
+    <div class='col col-12' >
+        <h3><%=OVsection1.title%></h3>
+    </div>
+
+    <div class='col col-12' >
+      <% for (let i = 0; i < OVsection1.paras.length; i += 1) { %>
+      <p><%=OVsection1.paras[i].para%></p>
+      <% } %>
+    </div>
+
+  </div>
+
+<% } %>
+
+<% if (OVsection2) { %>
+  <div class="row p-2">
+
+    <div class='col col-12' >
+      <h3><%=OVsection2.title%></h3>
+    </div>
+
+    <div class='col col-12' >
+      <% for (let i = 0; i < OVsection2.paras.length; i += 1) { %>
+      <p><%=OVsection2.paras[i].para%></p>
+      <% } %>
+    </div>
+
+  </div>
+<% } %>
+
+<% if (OVsection3) { %>
+  <div class="row p-2">
+
+    <div class='col col-12' >
+      <h3><%=OVsection3.title%></h3>
+    </div>
+
+    <div class='col col-12' >
+      <% for (let i = 0; i < OVsection3.paras.length; i += 1) { %>
+      <p><%=OVsection3.paras[i].para%></p>
+      <% } %>
+    </div>
+
+  </div>
+<% } %>
+
+<% if (OVsection4) { %>
+  <div class="row p-2">
+    <div class='col col-12' >
+      <h3><%=OVsection4.title%></h3>
+    </div>
+    
+    <div class='col col-12' >
+        <% for (let i = 0; i < OVsection4.paras.length; i += 1) { %>
+        <p><%=OVsection4.paras[i].para%></p>
+        <% } %>
+    </div>
+  </div>
+<% } %>
+
+<% if (OVsection5) { %>
+  <div class="row p-2">
+    <div class='col col-12' >
+      <h3><%=OVsection5.title%></h3>
+    </div>
+
+    <div class='col col-12' >
+      <% for (let i = 0; i < OVsection5.paras.length; i += 1) { %>
+      <p><%=OVsection5.paras[i].para%></p>
+      <% } %>
+    </div>
+
+  </div>
+<% } %>

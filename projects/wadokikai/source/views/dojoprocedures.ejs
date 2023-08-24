@@ -1,0 +1,30 @@
+<div class='row p-2' >
+    <h1 class='col col-12'><%=DPmain.title%></h1>
+</div>  
+
+<% if (DPsection1) { %>
+  <div class="row p-2">
+    <div class='col col-12' >
+      <h3><%=DPsection1.title%></h3>
+    </div>
+
+    <div class='col col-12'>
+        <% for (let i = 0; i < DPsection1.paras.length; i += 1) { %>
+          <p><%=DPsection1.paras[i].para%></p>
+          <% } %>
+    </div>
+  </div>
+<% } %>
+
+<% if (DPsection2) { %>
+  <div class="row p-2">
+    <div class='col col-12' >
+      <h3><%=DPsection2.title%></h3>
+    </div>
+    <div class='col col-12' >
+      <% for (let i = 0; i < DPsection2.paras.length; i += 1) { %>
+      <p><%=DPsection2.paras[i].para%></p>
+      <% } %>
+    </div>
+  </div>
+<% } %>

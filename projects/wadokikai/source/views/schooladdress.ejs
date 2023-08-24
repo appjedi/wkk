@@ -1,0 +1,22 @@
+
+<div id="Address<%=i%>" class="p-1">
+    Address: <br/>
+    <div class="p-2"> 
+        <%=schools[i].locationName%> <br/>
+        <% if (schools[i].address1 !== '') { %> 
+          <%=schools[i].address1%> <br/>
+        <% } %>
+        <% if (schools[i].city !== '') { %> 
+          <%=schools[i].city%>, 
+        <% } %>
+        <% if (schools[i].state !== '') { %> 
+          <%=schools[i].state%>, 
+        <% } %>
+        <% if (schools[i].zipCode !== '') { %> 
+          <%=schools[i].zipCode%> <br/>
+        <% } %>
+        <% if (schools[i].phoneNumber !== '') { %> 
+          <%=schools[i].phoneNumber%> <br/>
+        <% } %>
+    </div> <!-- inner address -->
+</div> <!-- address END -->

@@ -1,0 +1,112 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+    <head>
+      <%-include('head.ejs')%>
+    </head>
+
+    <body>
+        <%- include('mainNav.ejs', {navNuMain}); %>
+        
+        <nav class="container-fluid navbar-expand sticky-top bg-primary navbar-dark">
+          <div class="navbar-nav bg-primary justify-content-center"> 
+            <ul class="nav navbar-nav justify-content-center"></ul>
+
+              <% for(let i = 0; i<nav.length; i++) { %>
+                <% if ( nav[i].submenu ) { %>
+                  <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#"><%=nav[i].Text%></a>
+                      <div class="dropdown-menu">
+                      <% nav[i].submenu.forEach((submenu)=> { %>
+                        <% if (submenu.URL.startsWith('/') ) { %>
+                            <a class="dropdown-item" href="<%=submenu.URL%>" target="_blank" ><%=submenu.Text%> </a>
+                          <% } else {%>
+                            <a class="dropdown-item" href="<%=submenu.URL%>" data-bs-toggle="collapse"><%=submenu.Text%> </a>
+                        <% } %>
+                      <% }) %>  
+                    </div>
+                <% } else {%>
+                  <li class="nav-item">
+                    <a class="nav-item nav-link" href="<%=nav[i].URL%>"><%=nav[i].Text%></a>
+                  </li>
+                <% } %>
+              <% } %>
+                 
+                
+        </nav>
+
+        <div id="imgSlides" class="bg"> 
+          <img class='img-fluid mx-auto d-block bg' alt="slides" id="imgSlide" />
+        </div>
+
+        <!-- starts container and its child elements >> relative position -->
+        <div id="top" class="container-fluid">
+          <h2>Student Resources</h2>
+        
+          Learn about Karate, Wado Ki Kai style or Dojo procedures.  Watch videos on our Shinko Kata, Kata, or self-defence.  Learn more about karate, check out our recommended books.  We are a Japanese/Okanowin hybrid style and we use a lot of Japanese terms. If you want to know what those are, you can find out in the Terms section.  We also have a photo gallery on facebook.   
+          <br/>
+          <br/>
+          Select a <strong>DROP DOWN MENU OPTION</strong> above to show / hide a topic <br/>
+        </div>
+
+        <div id="resourceParent">
+            <div id="overview" class="collapse" data-bs-parent="#resourceParent">
+              <div class="card-body">
+                  <%- include('karateoverview.ejs') %>
+              </div>
+            </div>
+            
+            <div id="wkkstyle" class="collapse" data-bs-parent="#resourceParent">
+              <div class="card-body">
+                <%- include('wkkstyle.ejs') %>
+              </div>
+            </div>
+
+            <div id="dojoprocedures" class="collapse" data-bs-parent="#resourceParent">
+              <div class="card-body">
+                <%- include('dojoprocedures.ejs') %>
+              </div>
+            </div>
+
+            <div id="shinkokata" class="collapse" data-bs-parent="#resourceParent">
+              <div class="card-body">
+                <%- include('shinkokatas.ejs') %>
+              </div>
+            </div>
+
+            <div id="kata" class="collapse" data-bs-parent="#resourceParent">
+              <div class="card-body">
+                <%- include('katas.ejs') %>
+              </div>
+            </div>
+
+            <div id="videos" class="collapse" data-bs-parent="#resourceParent">
+              <div class="card-body">
+                <%- include('selfdefense.ejs') %>
+              </div>
+            </div>
+
+            <div id="library" class="collapse" data-bs-parent="#resourceParent">
+              <div class="card-body">
+                <%- include('library.ejs') %>
+              </div>
+            </div>
+
+            <div id="terminology" class="collapse" data-bs-parent="#resourceParent">
+              <div class="card-body">
+                <%- include('terms.ejs') %>
+              </div>
+            </div>
+
+            <div id="photos" class="collapse" data-bs-parent="#resourceParent">
+              <div class="card-body">
+                <%- include('photos.ejs') %>
+              </div>
+            </div>
+            
+          </div> <!-- resouceParent -->
+          
+          <%- include('footer.ejs') %>
+
+    </body>
+    <%-include('scripts.ejs')%>
+</html>

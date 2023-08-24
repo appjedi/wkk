@@ -1,0 +1,317 @@
+<div class="container-fluid">
+  <h2 class=''><%=Info[0].heading%></h2>
+  <h3><%=Info[0].description%></h3> 
+  <div class="accordion" id="accordionTerms">
+    <div class="card">
+      <div class="card-header" id="headingProcedures">
+        <h5 class="mb-0">
+        <button class="btn btn-link" type="button" data-bs-toggle="collapse" data-bs-target="#collapseProcedures" aria-expanded="false" aria-controls="collapseProcedures">
+          Class Procedures
+        </button>
+        </h5>
+      </div>
+
+    <div id="collapseProcedures" class="collapse" aria-labelledby="headingProcedures"  data-bs-parent="#accordionKatas">
+      <div class="card-body">
+        <div class='row'>
+          <div class='col col-3'><strong>English</strong></div>  
+          <div class='col col-3'><strong>Japanese</strong></div>  
+          <div class='col col-6'><strong>Description</strong> </div>    
+        </div>
+          <%for (let i = 0; i < Procedures.length; i++) { %>
+          <div class='row terms'>
+            <div class='col col-3'><%=Procedures[i].English%> </div>       
+            <div class='col col-3'><%=Procedures[i].Japanese%> </div>  
+            <div class='col col-6'><%=Procedures[i].description%> </div>  
+          </div>
+        <% } %>
+      </div>
+    </div>
+  </div>
+  <div class="card">
+    <div class="card-header" id="headingBlock">
+      <h5 class="mb-0">
+        <button class="btn btn-link collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseBlock" aria-expanded="false" aria-controls="collapseBlock">
+          Blocks
+        </button>
+      </h5>
+    </div>
+    <div id="collapseBlock" class="collapse" aria-labelledby="headingBlock"  data-bs-parent="#accordionKatas">
+      <div class="card-body">
+        <div class='row'>
+          <div class='col col-3'><strong>English</strong></div>  
+          <div class='col col-3'><strong>Japanese</strong></div>  
+          <div class='col col-6'><strong>Description</strong> </div>    
+        </div>
+          <%for (let i = 0; i < Block.length; i++) { %>
+          <div class='row terms'>
+            <div class='col col-3'><%=Block[i].English%> </div>       
+            <div class='col col-3'><%=Block[i].Japanese%> </div>  
+            <div class='col col-6'><%=Block[i].description%> </div>  
+          </div>
+        <% } %>
+      </div>
+    </div>
+  </div>
+  <div class="card">
+    <div class="card-header" id="headingStrike">
+      <h5 class="mb-0">
+        <button class="btn btn-link collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseStrike" aria-expanded="false" aria-controls="collapseStrike">
+          Strikes
+        </button>
+      </h5>
+    </div>
+    <div id="collapseStrike" class="collapse" aria-labelledby="headingStrike"  data-bs-parent="#accordionKatas">
+      <div class="card-body">
+        <div class='row'>
+          <div class='col col-3'><strong>English</strong></div>  
+          <div class='col col-3'><strong>Japanese</strong></div>  
+          <div class='col col-6'><strong>Description</strong> </div>    
+        </div>
+          <%for (let i = 0; i < Strike.length; i++) { %>
+          <div class='row terms'>
+            <div class='col col-3'><%=Strike[i].English%> </div>       
+            <div class='col col-3'><%=Strike[i].Japanese%> </div>  
+            <div class='col col-6'><%=Strike[i].description%> </div>  
+          </div>
+        <% } %>
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+      <div class="card-header" id="headingPunch">
+        <h5 class="mb-0">
+          <button class="btn btn-link collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapsePunch" aria-expanded="false" aria-controls="collapsePunch">
+            Punches
+          </button>
+        </h5>
+      </div>
+      <div id="collapsePunch" class="collapse" aria-labelledby="headingPunch"  data-bs-parent="#accordionKatas">
+        <div class="card-body">
+          <div class='row'>
+            <div class='col col-3'><strong>English</strong></div>  
+            <div class='col col-3'><strong>Japanese</strong></div>  
+            <div class='col col-6'><strong>Description</strong> </div>    
+          </div>
+            <%for (let i = 0; i < Punch.length; i++) { %>
+            <div class='row terms'>
+              <div class='col col-3'><%=Punch[i].English%> </div>       
+              <div class='col col-3'><%=Punch[i].Japanese%> </div>  
+              <div class='col col-6'><%=Punch[i].description%> </div>  
+            </div>
+          <% } %>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-header" id="headingStance">
+        <h5 class="mb-0">
+          <button class="btn btn-link collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseStance" aria-expanded="false" aria-controls="collapseStance">
+            Stances
+          </button>
+        </h5>
+      </div>
+      <div id="collapseStance" class="collapse" aria-labelledby="headingStance"  data-bs-parent="#accordionKatas">
+        <div class="card-body">
+          <div class='row'>
+            <div class='col col-3'><strong>English</strong></div>  
+            <div class='col col-3'><strong>Japanese</strong></div>  
+            <div class='col col-6'><strong>Description</strong> </div>    
+          </div>
+            <%for (let i = 0; i < Stance.length; i++) { %>
+            <div class='row terms'>
+              <div class='col col-3'><%=Stance[i].English%> </div>       
+              <div class='col col-3'><%=Stance[i].Japanese%> </div>  
+              <div class='col col-6'><%=Stance[i].description%> </div>  
+            </div>
+          <% } %>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-header" id="headingKick">
+        <h5 class="mb-0">
+          <button class="btn btn-link collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseKick" aria-expanded="false" aria-controls="collapseKick">
+            Kicks
+          </button>
+        </h5>
+      </div>
+      <div id="collapseKick" class="collapse" aria-labelledby="headingKick"  data-bs-parent="#accordionKatas">
+        <div class="card-body">
+          <div class='row terms'>
+            <div class='col col-3'><strong>English</strong></div>  
+            <div class='col col-3'><strong>Japanese</strong></div>  
+            <div class='col col-6'><strong>Description</strong> </div>    
+          </div>
+            <%for (let i = 0; i < Kick.length; i++) { %>
+            <div class='row terms'>
+              <div class='col col-3'><%=Kick[i].English%> </div>       
+              <div class='col col-3'><%=Kick[i].Japanese%> </div>  
+              <div class='col col-6'><%=Kick[i].description%> </div>  
+            </div>
+          <% } %>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-header" id="headingBody">
+        <h5 class="mb-0">
+          <button class="btn btn-link collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseBody" aria-expanded="false" aria-controls="collapseBody">
+            Parts of Body
+          </button>
+        </h5>
+      </div>
+      <div id="collapseBody" class="collapse" aria-labelledby="headingBody"  data-bs-parent="#accordionKatas">
+        <div class="card-body">
+          <div class='row'>
+            <div class='col col-3'><strong>English</strong></div>  
+            <div class='col col-3'><strong>Japanese</strong></div>  
+            <div class='col col-6'><strong>Description</strong> </div>    
+          </div>
+            <%for (let i = 0; i < Body.length; i++) { %>
+            <div class='row terms'>
+              <div class='col col-3'><%=Body[i].English%> </div>       
+              <div class='col col-3'><%=Body[i].Japanese%> </div>  
+              <div class='col col-6'><%=Body[i].description%> </div>  
+            </div>
+          <% } %>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-header" id="headingNumbers">
+        <h5 class="mb-0">
+          <button class="btn btn-link collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseNumbers" aria-expanded="false" aria-controls="collapseNumbers">
+            Numbers
+          </button>
+        </h5>
+      </div>
+      <div id="collapseNumbers" class="collapse" aria-labelledby="headingNumbers"  data-bs-parent="#accordionKatas">
+        <div class="card-body">
+          <div class='row'>
+            <div class='col col-3'><strong>English</strong></div>  
+            <div class='col col-3'><strong>Japanese</strong></div>  
+            <div class='col col-6'><strong>Description</strong> </div>    
+          </div>
+            <%for (let i = 0; i < Numbers.length; i++) { %>
+            <div class='row terms'>
+              <div class='col col-3'><%=Numbers[i].English%> </div>       
+              <div class='col col-3'><%=Numbers[i].Japanese%> </div>  
+              <div class='col col-6'><%=Numbers[i].description%> </div>  
+            </div>
+          <% } %>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-header" id="headingWeapon">
+        <h5 class="mb-0">
+          <button class="btn btn-link collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseWeapon" aria-expanded="false" aria-controls="collapseWeapon">
+            Weapons
+          </button>
+        </h5>
+      </div>
+      <div id="collapseWeapon" class="collapse" aria-labelledby="headingWeapon"  data-bs-parent="#accordionKatas">
+        <div class="card-body">
+          <div class='row'>
+            <div class='col col-3'><strong>English</strong></div>  
+            <div class='col col-3'><strong>Japanese</strong></div>  
+            <div class='col col-6'><strong>Description</strong> </div>    
+          </div>
+            <%for (let i = 0; i < Weapon.length; i++) { %>
+            <div class='row terms'>
+              <div class='col col-3'><%=Weapon[i].English%> </div>       
+              <div class='col col-3'><%=Weapon[i].Japanese%> </div>  
+              <div class='col col-6'><%=Weapon[i].description%> </div>  
+            </div>
+          <% } %>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-header" id="headingKata">
+        <h5 class="mb-0">
+          <button class="btn btn-link collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseKata" aria-expanded="false" aria-controls="collapseKata">
+            Forms - Kata
+          </button>
+        </h5>
+      </div>
+      <div id="collapseKata" class="collapse" aria-labelledby="headingKata"  data-bs-parent="#accordionKatas">
+        <div class="card-body">
+          <div class='row'>
+            <div class='col col-3'><strong>English</strong></div>  
+            <div class='col col-3'><strong>Japanese</strong></div>  
+            <div class='col col-6'><strong>Description</strong> </div>    
+          </div>
+            <%for (let i = 0; i < Kata.length; i++) { %>
+            <div class='row terms'>
+              <div class='col col-3'><%=Kata[i].English%> </div>       
+              <div class='col col-3'><%=Kata[i].Japanese%> </div>  
+              <div class='col col-6'><%=Kata[i].description%> </div>  
+            </div>
+          <% } %>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-header" id="headingGeneral">
+        <h5 class="mb-0">
+          <button class="btn btn-link collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseGeneral" aria-expanded="false" aria-controls="collapseGeneral">
+            General
+          </button>
+        </h5>
+      </div>
+      <div id="collapseGeneral" class="collapse" aria-labelledby="headingGeneral"  data-bs-parent="#accordionKatas">
+        <div class="card-body">
+          <div class='row'>
+            <div class='col col-3'><strong>English</strong></div>  
+            <div class='col col-3'><strong>Japanese</strong></div>  
+            <div class='col col-6'><strong>Description</strong> </div>    
+          </div>
+            <%for (let i = 0; i < General.length; i++) { %>
+            <div class='row terms'>
+              <div class='col col-3'><%=General[i].English%> </div>       
+              <div class='col col-3'><%=General[i].Japanese%> </div>  
+              <div class='col col-6'><%=General[i].description%> </div>  
+            </div>
+          <% } %>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-header" id="headingKumite">
+        <h5 class="mb-0">
+          <button class="btn btn-link collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseKumite" aria-expanded="false" aria-controls="collapseKumite">
+            Sparring - Kumite
+          </button>
+        </h5>
+      </div>
+      <div id="collapseKumite" class="collapse" aria-labelledby="headingKumite"  data-bs-parent="#accordionKatas">
+        <div class="card-body">
+          <div class='row'>
+            <div class='col col-3'><strong>English</strong></div>  
+            <div class='col col-3'><strong>Japanese</strong></div>  
+            <div class='col col-6'><strong>Description</strong> </div>    
+          </div>
+            <%for (let i = 0; i < Kumite.length; i++) { %>
+            <div class='row terms'>
+              <div class='col col-3'><%=Kumite[i].English%> </div>       
+              <div class='col col-3'><%=Kumite[i].Japanese%> </div>  
+              <div class='col col-6'><%=Kumite[i].description%> </div>  
+            </div>
+          <% } %>
+        </div>
+      </div>
+    </div>
+
+  </div> <!-- End of Accordion -->
+</div> 

@@ -1,0 +1,37 @@
+<html lang="en" xml:lang="en" xmlns= "http://www.w3.org/1999/xhtml">
+  <meta charset="UTF-8">
+  <meta name="google" content="notranslate">
+  <meta http-equiv="Content-Language" content="en">
+
+
+  <head>
+    <%- include('head.ejs')%>
+  </head>
+
+
+  <body>
+    <%- include('mainNav.ejs', {navNuMain}); %>
+
+    <%- include('pageNav.ejs', {nav: navNuHome}); %>
+    
+    <%- include('bgslideshow.ejs', {nav: navNuHome}); %>
+
+    <div id="news" class="container-fluid"> 
+      <%- include('news.ejs') %>
+    </div>  <!-- Overview div   -->
+
+    <div id="schedules" class="container-fluid"> 
+      <%- include('schedules.ejs') %>      
+    </div>  <!-- wkk style div   -->
+
+    <div id="signup" class="container-fluid">  
+      <%- include('sendemail.ejs', { schools: schools,  route: 'index', heading: "Sign Up", selectschool: '-1', subject: 'I would like to sign up for classes'}) %>  
+    </div>   <!-- dojo procedures div   -->
+
+    <%- include('footer.ejs'); %>
+  
+            
+  </body>
+  <%-include('scripts.ejs') %> 
+      
+</html>

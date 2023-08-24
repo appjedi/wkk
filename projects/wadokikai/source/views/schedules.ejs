@@ -1,0 +1,35 @@
+<div>
+  <div class="card mt-5 mb-3">
+    <div class="display-1">School Schedules and Locations</div>
+
+  </div>
+    <%for (let i = 0; i < schools.length; i++) { %>
+      <div id="Dojo<%=i%>">
+        <div id="header<%=i%>" >
+          <h3><%=schools[i].schoolName%> - <%=schools[i].city%>, <%=schools[i].state%>.</h3>
+        </div>
+        <div id="location<%=i%>" class="p-1">
+          <%- include('map.ejs', {i}) %>
+        </div>
+      
+        <div id="Address<%=i%>" class="p-1">
+          <div class="row">
+            <div class="col">
+              <%- include('schooladdress.ejs', {i: i}) %>
+            </div>
+            <div class="col pt-4">
+              <%- include('pricing.ejs', {i}) %>
+            </div>
+          </div>
+
+        </div>
+
+        <div id="schoolschedules">
+            <%- include('schoolschedules.ejs', {i: i}) %>
+        </div>
+      </div>
+      <p>&nbsp; </p>
+    <% } %>
+  </div>
+<br/>
+<br/>

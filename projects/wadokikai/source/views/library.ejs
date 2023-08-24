@@ -1,0 +1,33 @@
+<div class="container-fluid">
+    <h2 class=''><%=dataBooks.title%></h2>
+    <h3 class=''><%=dataBooks.intro%></h3>
+    <div class='container-fluid'>
+    <% for (let i = 0; i < dataBooks.booklist.length; i += 1) { %>
+      <div class="clearfix">
+        <div class="float-left m-2">
+            <img src='/images/books/<%=dataBooks.booklist[i].image%>' width="100px" height="100px" class="bookimg img-fluid img-thumbnail">
+        </div>
+        <div class="">
+          <strong>Title: </strong>
+          <a href='<%=dataBooks.booklist[i].url%>' target="_blank"><%=dataBooks.booklist[i].title%></a>
+        </div>
+
+        <div class="">
+          <strong>Description: </strong>
+            <%=dataBooks.booklist[i].description%>
+
+        </div>
+        <div class="">
+          <strong>Author: </strong>
+            <%=dataBooks.booklist[i].author%>
+
+        </div>
+        <div class="">
+          <strong>Publisher: </strong>
+            <%=dataBooks.booklist[i].publisher%>
+        </div>
+        <br/>
+      </div>
+    <% } %>
+    </div>
+</div> 

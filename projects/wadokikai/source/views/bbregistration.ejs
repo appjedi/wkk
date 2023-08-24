@@ -1,0 +1,65 @@
+<div class="justify-content-center">
+    <% for(let i = 0; i < data.length; i++) { %>
+
+        <% if (prevEvent != data[i].eventID) { %>
+          <% prevEvent = data[i].eventID; %>
+          <% newevent = true; %>
+        <% } %>
+
+      <% if (newevent) { %>
+
+        <% if (!firsttime) { %>
+          </div> <!-- Card body -->
+          <div class="card-footer">
+          </div>
+          </div> <!-- Card  -->
+        <%   }  else { %>
+          <% firsttime = false%>
+        <% } %>
+
+        <div class="card m-3">
+          <div class="card-header">
+            <h3><%=data[i].eventName%></h3>
+          </div> <!-- Card header -->
+          <div class="card-body">
+          <%  newevent = false; %> 
+      <% } %>
+      <div id="event<%i%>" class="row event m-2"> 
+        <div class="col">
+          <%=data[i].eventID%>
+          <%=data[i].eventName%>
+        </div>
+        <div class="col">
+          <%=data[i].eventdate%>
+          <%=data[i].eventtime%>
+          <%=data[i].eventowner%>
+        </div>
+        <div class="col">
+          <%=data[i].name%>
+        </div>
+        <div class="col">
+          <%=data[i].email%>
+        </div>
+        <div class="col">
+          <%=data[i].phone%>
+        </div>
+        <div class="col">
+          <%=data[i].registrationmsg%>
+        </div>
+        <div class="col">
+          <%=moment(data[i].dateJoined).format('MMMM Do, YYYY')%>
+        </div>
+
+      </div>  
+
+
+    <%   }  %>
+
+    <% if (data.length > 0) {  %>
+      </div> <!-- Card body -->
+      <div class="card-footer">
+      </div>
+      </div> <!-- Card  -->
+  <%  }  %>
+
+</div> <!-- ends justify-content-center div -->

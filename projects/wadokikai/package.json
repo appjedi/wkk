@@ -1,0 +1,47 @@
+{
+  "name": "wadokikai",
+  "version": "1.0.0",
+  "description": "Wado Ki Kai website for the public",
+  "main": "app.js",
+  "scripts": {
+    "start": "set DEBUG=app, app:* & nodemon --trace-warnings app.js",
+    "start-prod": "node app.js",
+    "start-AWSP": "node app.js",
+    "start-AWSD": "DEBUG=app,app:* node app.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Larry Wadford and Robert Timlin",
+  "license": "ISC",
+  "dependencies": {
+    "angular": "^1.8.2",
+    "body-parser": "^1.20.0",
+    "bootstrap": "^4.6.0",
+    "chalk": "^4.1.0",
+    "cookie-parser": "^1.4.5",
+    "debug": "^4.3.1",
+    "ejs": "^3.1.8",
+    "express": "^4.17.1",
+    "jquery": "^3.5.1",
+    "moment": "^2.29.4",
+    "mongodb": "^3.6.3",
+    "morgan": "^1.10.0",
+    "nodemailer": "^6.7.7",
+    "nodemon": "^2.0.19",
+    "rotating-file-stream": "^3.0.4",
+    "save": "^2.5.0"
+  },
+  "nodemonConfig": {
+    "restartable": "rs",
+    "ignore": [
+      "/node_modules/**/node_modules",
+      "dist/**",
+      "data/**",
+      "public/**"
+    ],
+    "delay": "2500",
+    "env": {
+      "NODE_ENV": "development",
+      "PORT": 80
+    }
+  }
+}

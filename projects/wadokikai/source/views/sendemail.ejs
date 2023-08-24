@@ -1,0 +1,102 @@
+
+<div class="container-fluid"><br />
+    <h1><%=heading%></h1><br />
+
+    <% if (err !== "") { %>
+        <div class="toast show">
+            <div class="toast-header">
+                <strong class="me-auto"><%=heading%></strong> 
+                <small class="text-muted">just now</small>
+              <button type="button" class="btn-close justify-content-right" data-bs-dismiss="toast"></button>
+            </div>
+            <div class="toast-body">
+                Sorry there was an error trying to send an email. <br/><br/>Please try agian later or call the school you are trying to contact.
+            </div>
+          </div>
+    <% } %>
+    <% if (msg !== "") { %>
+    <div class="toast show">
+        <div class="toast-header">
+            <strong class="me-auto"><%=heading%></strong> 
+            <small class="text-muted">just now</small>
+            <button type="button" class="btn-close justify-content-right" data-bs-dismiss="toast"></button>
+        </div>
+        <div class="toast-body">
+            Message sent! 
+        </div>
+      </div>
+    <% } %>
+
+    <div class="card justify-content-center">
+        <form id="sendmail" class="was-validated" action="/sendemail" method="post">
+            
+            <div class="row">
+                <div class="col m-3 ">
+                    <div class="form-group ">
+                        <label for="school">School:</label>
+                        <select id='sendemailSchool' class="form-control" name="school" required>
+                            <option value=""></option>
+                        <% for (var j = 0; j < schools.length; j += 1) { %>
+                            <% if (j == selectschool) { %>
+                                <option value="<%=schools[j].pricingemail%>" selected><%=schools[j].schoolName%></option>
+                            <% } else { %>
+                                <option value="<%=schools[j].pricingemail%>"><%=schools[j].schoolName%></option>
+                            <% } %>
+                        <% } %>
+                        </select>
+                        <div id='sendemailnameSchool' class="invalid-feedback">Select school you are interested in</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col m-3">
+                    <div class="form-group ">
+                        <label for="to">Email:</label>
+                        <input id='sendemailemail' type="email" class="form-control" name="from" minlength="6" required>
+                        <div id='sendemailemailInvalid' class="invalid-feedback">Enter email address (example: name@xyz.com)</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col m-3">
+                    <div class="form-group ">
+                        <label for="subject">Name:</label>
+                        <input id='sendemailname' type="text" class="form-control" name="name" minlength="6" required>
+                        <div id='sendemailnameInvalid' class="invalid-feedback">Provide First and Last name</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col m-3">
+                    <div class="form-group ">
+                        <label for="subject">Subject:</label>
+                        <input id='sendemailsubject' type="text" class="form-control" name="subject" value="<%=subject%>" required>
+                        <div id='sendemailsubjectInvalid' class="invalid-feedback">What information are you looking for</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col m-3">
+                    <div class="form-group ">
+                        <label for="body">Message:</label>
+                        <textarea id='sendemailbody'  cols="5" rows="5"class="form-control" name="body"  minlength="10" required></textarea>
+                        <div id='sendemailbodyInvalid' class="invalid-feedback">Please provide additonal information about yourself</div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col m-3">
+                    <div class="form-group ">
+                        <button type="submit" class="btn btn-success">Send</button>
+                    </div>
+                </div>
+            </div>
+            <input type="text" class="d-none" name="stauts" value="0">
+            <input type="text" class="d-none" name="route" value=<%=route%>>
+        </form>
+    </div>
+</div>

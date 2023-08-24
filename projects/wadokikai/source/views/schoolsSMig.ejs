@@ -1,0 +1,11 @@
+<% let iglink = ""; let igtext = ""; %> 
+<% Object.keys(schools[i].socialMediaIG).forEach(function(prop) { %>
+  <% if (prop === 'text') igtext = schools[i].socialMediaIG[prop] %> 
+  <% if (prop === 'link') iglink = schools[i].socialMediaIG[prop] %> 
+
+  <% if (iglink !== '' ) { %> 
+    <div id="SocialMediaIG<%=i%>"  class="p-1">
+      <a href=<%=iglink%>> <img src='/images/igpic.webp' > </a> 
+    </div> <!-- SocialMediaIG END-->
+  <% } %> 
+<% }); %>  

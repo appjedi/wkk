@@ -1,0 +1,24 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+    <%- include('head.ejs', {navNuMain}); %>
+  </head>
+
+  <body>
+    <%- include('mainNav.ejs', {navNuMain}); %>
+
+    <!-- starts container and its child elements >> relative position -->
+    <div id='bbeventsview' class="container">
+      <h1><%=title%></h1>
+
+      <%- include('bbregistration.ejs'); %>
+
+      <%- include('bbemaillistpromo.ejs'); %>
+      <%- include('bbemaillisttourn.ejs'); %>
+      <%- include('bbemaillistbbc.ejs'); %>
+      
+    </div> <!-- ends events container div -->
+    <%- include('footer.ejs'); %>
+    <%- include('scripts.ejs'); %>
+  </body>
+</html>

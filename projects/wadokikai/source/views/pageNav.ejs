@@ -1,0 +1,13 @@
+<nav class="container-fluid navbar-expand sticky-top bg-primary navbar-dark">
+    <div class="navbar-nav bg-primary justify-content-center"> 
+      <ul class="nav navbar-nav justify-content-center"></ul>
+      <% for(let i = 0; i<nav.length; i++) { %>
+        <% let currentRoute = ''; %>
+        <% if (nav[i].Text === currentRoute) { %>
+        <li class="nav-item"><a class="nav-item nav-link active" href="<%=nav[0].URL%>"><%=nav[0].Text%></a></li>
+        <% } else { %>
+        <li class="nav-item"><a class="nav-item nav-link" href="<%=nav[i].URL%>"><%=nav[i].Text%> </a></li>
+        <% } %>
+      <% } %>
+    </div>
+</nav>

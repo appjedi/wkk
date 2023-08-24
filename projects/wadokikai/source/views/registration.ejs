@@ -1,0 +1,115 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+    <%- include('head.ejs', {navNuMain}); %>
+  </head>
+
+  <body>
+    <%- include('mainNav.ejs', {navNuMain}); %>
+
+    <!-- starts container and its child elements >> relative position -->
+    <div id='eventsregistration' class="container">
+      <h1><%=title%></h1>
+
+      <!-- Need to have event specific details -->
+      <h4>Name: <%=eventName%> </h4>
+      <h4>Location: <%=eventLocation%></h4>
+      <h4>Date and Time: <%=moment(eventdate).format('MMMM Do, YYYY')%> <%=eventtime%></h4>
+
+      <% if (err != "") { %>
+        <div class="toast show">
+            <div class="toast-header">
+                <strong class="me-auto"><%=title%></strong> 
+                <small class="text-muted">just now</small>
+              <button type="button" class="btn-close justify-content-right" data-bs-dismiss="toast"></button>
+            </div>
+            <div class="toast-body">
+                <%=err%><br/><br/>Please go back to register again.
+            </div>
+          </div>
+    <% } %>
+    <% if (msg != "") { %>
+    <div class="toast show">
+        <div class="toast-header">
+            <strong class="me-auto"><%=title%></strong> 
+            <small class="text-muted">just now</small>
+            <button type="button" class="btn-close justify-content-right" data-bs-dismiss="toast"></button>
+        </div>
+        <div class="toast-body">
+            Registration Complete!<br/><br/>You should recieve an e-mail soon.  
+        </div>
+      </div>
+    <% } %>
+
+
+      <div class="justify-content-center">                     
+        <form id="registration" class="was-validated" action="/registration" method="post">
+            <% if(status == 1) {  %>
+                <fieldset disabled="disabled">
+            <% }  %>
+            <div class="row">
+                <div class="col m-3">
+                    <div class="form-group ">
+                        <label for="subject">Name:</label>
+                        <input id='registrationname' type="text" class="form-control" name="name" minlength="6" required>
+                        <div id='registrationnameInvalid' class="invalid-feedback">Provide First and Last name</div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="row">
+                <div class="col m-3">
+                    <div class="form-group ">
+                        <label for="to">Email:</label>
+                        <input id='registrationemail' type="email" class="form-control" name="email" minlength="6" required>
+                        <div id='registrationemailInvalid' class="invalid-feedback">Enter email address (example: name@xyz.com)</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col m-3">
+                    <div class="form-group ">
+                        <label for="subject">Phone:</label>
+                        <input id='registrationname' type="phone" class="form-control" name="phone" minlength="10">
+                        <div id='registrationnameInvalid' class="invalid-feedback">Phone number not required</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col m-3">
+                    <div class="form-group ">
+                        <label for="body">Message:</label>
+                        <textarea id='registrationbody'  cols="5" rows="5"class="form-control" name="msg"  minlength="10" required></textarea>
+                        <div id='registrationbodyInvalid' class="invalid-feedback">Please provide additonal information we may need to know</div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col m-3">
+                    <div class="form-group ">
+                        <button type="submit" class="btn btn-success">Register Now</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Hidden field for the class they are registering for -->
+            <input type="text" name="eventId" class="d-none" value="<%=eventID%>">
+            <input type="text" name="eventName" class="d-none" value="<%=eventName%>">
+            <input type="text" name="eventLocation" class="d-none" value="<%=eventLocation%>">
+            <input type="text" name="eventDate" class="d-none" value="<%=moment(eventdate).format('MMMM Do, YYYY')%>">
+            <input type="text" name="eventTime" class="d-none" value="<%=eventtime%>">
+            <input type="text" name="eventOwner" class="d-none" value="<%=eventowner%>">
+            <% if(status == 1) {  %>
+            </fieldset> 
+            <% }  %>
+        </form>
+       
+      </div> <!-- justify-content-center  -->
+    </div>  <!-- ends container div -->
+  
+    <%- include('footer.ejs'); %>
+    <%- include('scripts.ejs'); %>
+  </body>
+</html>

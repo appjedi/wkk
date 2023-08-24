@@ -1,0 +1,133 @@
+<html lang="en" xml:lang="en" xmlns= "http://www.w3.org/1999/xhtml">
+<meta charset="UTF-8">
+<meta name="google" content="notranslate">
+<meta http-equiv="Content-Language" content="en">
+    <head>
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+
+      <meta name="description" content="Wado Ki Kai Karate, Alameda, California" />
+      <meta name="keywords" content="Karate, Wadokikai, Wado Ki Kai, to learn from all things" />
+      <meta name="Copyright" content="Copyright (c) 2021 wadokikai.com" />
+      <meta name="robots" content="all" />
+
+      <link rel="preconnect" href="https://fonts.gstatic.com">
+      <link href="https://fonts.googleapis.com/css2?family=Special+Elite&display=swap" rel="stylesheet">
+      <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+      integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+      <link rel="shortcut icon" type="image/jpg" href="/images/favicon.ico"/>
+    </head>
+    <body>
+      <img class='wkkbg' src="../images/wkkpatch22_med.png">
+      <nav class="container-fluid navbar navbar-dark bg-primary">
+        <div>
+          <img src="/images/patch.png" class="d-inline-block align-top nav-brand-img" alt="">
+          <a class="navbar-brand navbarfont" href="<%=nav[0].URL%>"><%=title%></a>
+        </div>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+          <div class="navbar-nav ">
+            <a class="nav-item nav-link active" href="<%=nav[0].URL%>"><%=nav[0].homeText%> <span class="sr-only">(current)</span></a>
+            <% for(let i = 0; i<nav.length; i++) { %>
+                <a class="nav-item nav-link" href="<%=nav[i].URL%>"><%=nav[i].Text%> </a>
+            <% } %>
+          </div>
+        </div>
+      </nav>
+        <div class="container-fluid">
+            <div class='row p-2' >
+                <h1 class=''><%=main.title%></h1>
+            </div>  
+        </div>
+
+        <% if (section1) { %>
+          <div class="container-fluid">
+              <div class='row p-2' >
+                  <h3><%=section1.title%></h3>
+              <div class='p-2' >
+                <% for (let i = 0; i < section1.paras.length; i += 1) { %>
+                <p><%=section1.paras[i].para%></p>
+                <% } %>
+              </div>
+            </div>
+          </div>
+          <% } %>
+
+        <% if (section2) { %>
+        <div class="container-fluid">
+            <div class='row p-2' >
+                <h3><%=section2.title%></h3>
+            <div class='p-2' >
+              <% for (let i = 0; i < section2.paras.length; i += 1) { %>
+              <p><%=section2.paras[i].para%></p>
+              <% } %>
+            </div>
+          </div>
+        </div>
+        <% } %>
+
+        <% if (section3) { %>
+        <div class="container-fluid">
+            <div class='row p-2' >
+                <h1 class=''><h3><%=section3.title%></h3>
+            <div class='p-2' >
+                <% for (let i = 0; i < section3.paras.length; i += 1) { %>
+                <p><%=section3.paras[i].para%></p>
+                <% } %>
+            <div class='col-6'>
+
+            </div>
+        </div>
+        <% } %>
+
+        <% if (section4) { %>
+        <div class="container-fluid">
+            <div class='row p-2' >
+                <h1 class=''><h3><%=section4.title%></h3>
+            <div class='p-2' >
+                <% for (let i = 0; i < section4.paras.length; i += 1) { %>
+                <p><%=section4.paras[i].para%></p>
+                <% } %>
+            <div class='col-6'>
+
+            </div>
+        </div>
+        <% } %>
+
+        <% if (section5) { %>
+        <div class="container-fluid">
+            <div class='row p-2' >
+                <h1 class=''><h3><%=section5.title%></h3>
+            <div class='p-2' >
+                <% for (let i = 0; i < section5.paras.length; i += 1) { %>
+                <p><%=section5.paras[i].para%></p>
+                <% } %>
+            <div class='col-6'>
+
+            </div>
+        </div>
+        <% } %>
+        
+        <footer class='footer container-fluid'>
+          <div class='row'>
+            <div class='col-12 footer'>
+            <p>WadoKiKai.com brought to you by Combative Sports web designs, its more than just a webpage <strong>it's a Knock Out!</strong>.</p>
+            <p>Graphics provided by Woopsieroo<a href='https://twitter.com/Woopsieroo' target='_blank'>Twitter</a> or <a href='https://instagram.com/woopsieroo' target='_blank'>Instagram</a></p>
+            </div>
+          </div>
+        </footer>
+            
+      </body>
+      <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" 
+      integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" 
+      crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" 
+      integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" 
+      crossorigin="anonymous"></script>
+      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" 
+      integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" 
+      crossorigin="anonymous"></script>
+      
+</html>

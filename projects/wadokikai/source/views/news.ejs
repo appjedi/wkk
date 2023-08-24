@@ -1,0 +1,50 @@
+<div class="display-1">News</div>
+<div class="">
+  <div class='row justify-content-center'  >
+    <% for (let i = 0; i < wadokikaihomepage.news.length; i++) { %>
+
+      <% if (wadokikaihomepage.news[i].expires > currentdate) { %>
+        <div class='col-sm-5 card m-3 pb-3'>
+          
+          <div class="display-4"><%=wadokikaihomepage.news[i].Title%></div>
+
+          <% if ( wadokikaihomepage.news[i].Img ) { %>
+            <img class='img-fluid' src='<%=wadokikaihomepage.news[i].Img%>' width='100%'/>
+          <% } %>
+
+          <% if ( wadokikaihomepage.news[i].videoID ) { %>
+            <div class="youtube" data-embed='<%-wadokikaihomepage.news[i].videoID%>'> 
+              <div class="play-button"></div> 
+          </div>
+          <% } %>
+
+          <% if ( wadokikaihomepage.news[i].Text && wadokikaihomepage.news[i].Text !== '<DT>' ) { %>
+            <p class="card-text"><%=wadokikaihomepage.news[i].Text%></p>
+          <% } else { %> 
+            <% /*  deal with token if needed   */ %>
+          <% } %>
+
+
+          <% if ( wadokikaihomepage.news[i].Link ) { %>
+            <% if ( wadokikaihomepage.news[i].embedpdf ) { %>
+              <embed src="<%=wadokikaihomepage.news[i].Link%>#toolbar=0&navpanes=0&scrollbar=0" type="application/pdf" width="100%" height="600px" />
+            <% } else { %> 
+              <% if ( wadokikaihomepage.news[i].LinkInternal ) { %>
+                <a class="btn btn-primary card-link" href="<%=wadokikaihomepage.news[i].Link%>"><%=wadokikaihomepage.news[i].LinkText%></a>
+              <% } else { %> 
+                <a class="btn btn-primary card-link" target='_blank' href="<%=wadokikaihomepage.news[i].Link%>"><%=wadokikaihomepage.news[i].LinkText%> </a>
+              <% } %>
+            <% } %>
+          <% } %>
+
+          <% if ( wadokikaihomepage.news[i].expires && wadokikaihomepage.news[i].expires < futuredate ) { %>
+            <p class="fs-7">exp: <%=moment(wadokikaihomepage.news[i].expires).format('MMMM Do, YYYY')%></p>
+          <% } else { %> 
+            <% /*  deal with token if needed   */ %>
+          <% } %>
+        </div> <!-- card  -->
+      <% } %>
+    <% } %>
+  </div> <!-- news end -->
+</div> <!-- end -->
+

@@ -1,0 +1,121 @@
+
+<html lang="en" xml:lang="en" xmlns= "http://www.w3.org/1999/xhtml">
+    <meta charset="UTF-8">
+    <meta name="google" content="notranslate">
+    <meta http-equiv="Content-Language" content="en">
+  
+  
+    <head>
+      <%- include('head.ejs')%>
+    </head>
+    <body>
+        <%- include('mainNav.ejs', {navNuMain}); %>
+    
+        <div class="container-fluid"><br />
+            <h1><%=title%></h1><br />
+
+            <p><%-text%></p>
+       
+            <% if (status == 1) { %>
+            <div class="toast show">
+                <div class="toast-header">
+                    <strong class="me-auto"><%=title%></strong> 
+                    <small class="text-muted">just now</small>
+                    <button type="button" class="btn-close justify-content-right" data-bs-dismiss="toast"></button>
+                </div>
+                <div class="toast-body">
+                    Subscribed to the email list!<br/><br/>Select a menu option to continue browsing.
+                </div>
+              </div>
+            <% } %>
+
+            <% if (status == 0 && msg != '') { %>
+                <div class="toast show">
+                    <div class="toast-header">
+                        <strong class="me-auto"><%=title%></strong> 
+                        <small class="text-muted">just now</small>
+                        <button type="button" class="btn-close justify-content-right" data-bs-dismiss="toast"></button>
+                    </div>
+                    <div class="toast-body">
+                        <%=msg%>
+                    </div>
+                  </div>
+                <% } %>
+           
+
+            <div class="card justify-content-center">
+                <form id="joinemail" class="was-validated" action="/joinemail" method="post" >
+                <% if(status == 1) {  %>
+                <fieldset disabled="disabled">
+                <% }  %>
+                    
+                    <div class="row">
+                        <div class="col m-3">
+                            <div class="form-group ">
+                                <label for="subject">Name:</label>
+                                <input id='joinemailname' type="text" class="form-control" name="name" minlength="6" required>
+                                <div id='joinemailnameInvalid' class="invalid-feedback">Provide First and Last name</div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="row">
+                        <div class="col m-3">
+                            <div class="form-group ">
+                                <label for="to">Email:</label>
+                                <input id='joinemailemail' type="email" class="form-control" name="email" minlength="6" required>
+                                <div id='joinemailemailInvalid' class="invalid-feedback">Enter email address (example: name@xyz.com)</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col m-3">
+                            <div class="form-group ">
+                                <label for="to">Phone:</label>
+                                <input id='joinemailphone' type="phone" class="form-control" name="phone" minlength="10">
+                                <div id='joinemailemailInvalid' class="invalid-feedback">Enter phone number</div>
+                            </div>
+                        </div>
+                    </div>
+        
+                    <div class="row">
+                        <div class="col m-3">
+                            <div class="form-group ">
+                                <label for="subject">List Type:</label>
+                                <input id='joinemailsubject' type="text" class="form-control" name="subject" value="<%=type%>" disabled>
+                            </div>
+                        </div>
+                    </div>
+                    <input type="text" class="d-none" name="type" value=<%=type%>>
+        
+                    <!-- <div class="row">
+                        <div class="col m-3">
+                            <div class="form-group ">
+                                <label for="body">Message:</label>
+                                <textarea id='joinemailbody'  cols="5" rows="5"class="form-control" name="body"  minlength="10" required></textarea>
+                                <div id='joinemailbodyInvalid' class="invalid-feedback">Please provide additonal information about yourself</div>
+                            </div>
+                        </div>
+                    </div> -->
+                    <div class="row">
+                        <div class="col m-3">
+                            <div class="form-group ">
+                                <button type="submit" class="btn btn-success">Join List</button>
+                            </div>
+                        </div>
+                    </div>
+
+                <% if(status == 1) {  %>
+                </fieldset> 
+                <% }  %>
+                </form>
+            </div>
+        </div>
+    
+        <%- include('footer.ejs'); %>             
+      </body>
+      <%-include('scripts.ejs') %> 
+</html>
+
+

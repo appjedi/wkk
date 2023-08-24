@@ -1,0 +1,714 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Wado Ki Kai - Students</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-2" />
+        <meta name="description" content="Wado Ki Kai Karate, Alameda, California" />
+        <meta name="keywords" content="Karate, Wadokikai, Wado Ki Kai, to learn from all things" />
+        <meta name="Copyright" content="Copyright (c) 2021 wadokikai.com" />
+        <meta name="robots" content="all" />
+        <!-- compliance patch for Microsoft browsers -->
+        <!--[if lt IE 7]><script src="/ie7/ie7-standard-p.js" type="text/javascript"></script><![endif]-->
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com">
+        <link href="https://fonts.googleapis.com/css2?family=Special+Elite&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+        <link rel="shortcut icon" type="image/jpg" href="/images/favicon.ico"/>
+        <link href='/css/wadokikai.css' rel='stylesheet'>
+    </head>
+
+    <body>
+        <nav class="container-fluid navbar navbar-fixed-top bg-primary navbar-dark">
+            <div class="container-fluid">
+              <a class="navbar-brand  d-none d-md-block" href="<%=navNuMain[0].URL%>">
+                <img class="nav-brand-img" src="/images/wkkpatch22_med.png" width='139px' heigth='137px' alt="">
+              </a>
+              <div class="navbar" id="navbarNavMarkup">
+                <div class="navbar-nav navbar-expand">
+                  <ul class="nav navbar-nav justify-content-center">
+                    <li class="nav-item"><a class="nav-link active" href="<%=navNuMain[0].URL%>"><%=navNuMain[0].Text%> <span class="sr-only">(current)</span></a></li>
+                    <% for (let i = 1; i< navNuMain.length; i++) { %>
+                      <% var link = 'Facebook Page'; %>
+                      <% if ( navNuMain[i].Text === link ) { %>
+                        <li class="nav-item"><a class="nav-link" href="<%=navNuMain[i].URL%>" target="_blank">FB </a></li>
+                      <% } else { %> 
+                        <li class="nav-item"><a class="nav-link" href="<%=navNuMain[i].URL%>"><%=navNuMain[i].Text%> </a></li>
+                      <% } %>
+                    <% } %>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </nav>
+
+        <nav class="container-fluid navbar-expand sticky-top bg-primary navbar-light">
+          <div class="navbar-nav bg-primary justify-content-center"> 
+            <ul class="nav navbar-nav justify-content-center"></ul>
+              <li class="nav-item"><a class="nav-item nav-link active" href="<%=nav[0].URL%>"><%=nav[0].Text%> <span class="sr-only">(current)</span></a></li>
+            <% for(let i = 1; i<nav.length; i++) { %>
+              <li class="nav-item"><a class="nav-item nav-link" href="<%=nav[i].URL%>"><%=nav[i].Text%> </a></li>
+            <% } %>
+          </div>
+        </nav>
+
+
+        <!-- starts container and its child elements >> relative position -->
+        <div id="shinkokata">
+            <div id="quickSummary">
+                <h1>Wado Ki Kai Students </h1>
+            </div>
+            <div id="ShinkoKata">
+                <div class="container-fluid">
+                    <div class='row p-2' >
+                        <h2 class=''><%=dataShinko.title%></h2>
+                        <p><%=dataShinko.para%></a>
+                    </div>  
+                </div>
+                <% if (dataShinko.white) { %>
+                <div class="container-fluid">
+                    <div class='row p-2' >
+                        <h3><%=dataShinko.white[0].Rank%></h3>
+                    </div>    
+                    <div class='row p-2' >
+                        <ul>
+                        <% for (let i = 0; i < dataShinko.white.length; i += 1) { %>
+                            <li><a target="_blank"  href=<%=dataShinko.white[i].URL%>><%=dataShinko.white[i].Name%></a></li>
+                        <% } %>
+                        </ul>
+                    </div>
+                </div>
+                <% } %>
+        
+                <% if (dataShinko.yellowAndOrange) { %>
+                <div class="container-fluid">
+                    <div class='row p-2' >
+                        <h3><%=dataShinko.yellowAndOrange[0].Rank%></h3>
+                    </div>
+                    <div class='row p-2' >
+                        <ul>
+                            <% for (let i = 0; i < dataShinko.yellowAndOrange.length; i += 1) { %>
+                                <li><a target="_blank"  href=<%=dataShinko.yellowAndOrange[i].URL%>><%=dataShinko.yellowAndOrange[i].Name%></a></li>
+                            <% } %>
+                        </ul>
+                    </div>
+                </div>
+                <% } %>
+        
+                <% if (dataShinko.green) { %>
+                <div class="container-fluid">
+                    <div class='row p-2' >
+                        <h3><%=dataShinko.green[0].Rank%></h3>
+                    </div>
+                    <div class='row p-2' >
+                        <ul>
+                            <% for (let i = 0; i < dataShinko.green.length; i += 1) { %>
+                                <li><a target="_blank"  href=<%=dataShinko.green[i].URL%>><%=dataShinko.green[i].Name%></a></li>
+                            <% } %>
+                        </ul>
+                    </div>
+                </div>
+                <% } %>
+        
+                <% if (dataShinko.blue) { %>
+                <div class="container-fluid">
+                    <div class='row p-2' >
+                        <h3><%=dataShinko.blue[0].Rank%></h3>
+                    </div>
+                    <div class='row p-2' >
+                        <ul> 
+                            <% for (let i = 0; i < dataShinko.blue.length; i += 1) { %>
+                                <li><a target="_blank"  href=<%=dataShinko.blue[i].URL%>><%=dataShinko.blue[i].Name%></a></li>
+                            <% } %>
+                        </ul>
+                    </div>
+                </div>
+                <% } %>
+        
+                <% if (dataShinko.purple) { %>
+                    <div class="container-fluid">
+                        <div class='row p-2' >
+                            <h3><%=dataShinko.purple[0].Rank%></h3>
+                        </div>
+                        <div class='row p-2' >
+                            <ul>
+                                <% for (let i = 0; i < dataShinko.purple.length; i += 1) { %>
+                                    <li><a target="_blank"  href=<%=dataShinko.purple[i].URL%>><%=dataShinko.purple[i].Name%></a></li>
+                                <% } %>
+                            </ul>
+                        </div>
+                    </div>
+                <% } %>
+        
+                <% if (dataShinko.brown) { %>
+                    <div class="container-fluid">
+                        <div class='row row p-2' >
+                            <h3><%=dataShinko.brown[0].Rank%></h3>
+                        </div>
+                        <div class='row p-2' >
+                            <ul>
+                                <% for (let i = 0; i < dataShinko.brown.length; i += 1) { %>
+                                    <li><a target=buttondata"_blank"  href=<%=dataShinko.brown[i].URL%>><%=dataShinko.brown[i].Name%></a></li>
+                                <% } %>
+                            </ul>
+                        </div>
+                    </div>
+                <% } %>
+            </div>
+        </div>
+        <!-- ends container div -->
+
+        <div id="kata">
+            <div class="container-fluid">
+                <div class='row m-2' >
+                    <h2 class=''><%=dataKata.title%></h2>
+                    <h3><%=dataKata.para%></h3>
+                </div>  
+            
+    
+                <div class="accordion" id="accordionKatas">
+                    <div class="card">
+                      <div class="card-header" id="headingWhite">
+                        <h5 class="mb-0">
+                          <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseWhite" aria-expanded="false" aria-controls="collapseWhite">
+                            <%=dataKata.white[0].Rank%> (Taikyoko shodan, nidan, sandan, yodon )
+                          </button>
+                        </h5>
+                      </div>
+                  
+                      <div id="collapseWhite" class="collapse" aria-labelledby="headingWhite" data-parent="#accordionKatas">
+                        <div class="card-body">
+                            <% for (let i = 0; i < dataKata.white.length; i += 1) { %>
+                                <div class='embed-responsive embed-responsive-16by9'><%=dataKata.white[i].Name%><%-dataKata.white[i].URL%></div>
+                            <% } %>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="card">
+                      <div class="card-header" id="headingYellow">
+                        <h5 class="mb-0">
+                          <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseYellow" aria-expanded="false" aria-controls="collapseYellow">
+                            <%=dataKata.yellow[0].Rank%>  (Pingan shodan, nidan, sandan )
+                          </button>
+                        </h5>
+                      </div>
+                      <div id="collapseYellow" class="collapse" aria-labelledby="headingYellow" data-parent="#accordionKatas">
+                        <div class="card-body">
+                            <% for (let i = 0; i < dataKata.yellow.length; i += 1) { %>
+                                <div class='embed-responsive embed-responsive-16by9'><%=dataKata.yellow[i].Name%><%-dataKata.yellow[i].URL%></div>
+                            <% } %>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="card">
+                      <div class="card-header" id="headingOrange">
+                        <h5 class="mb-0">
+                          <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseOrange" aria-expanded="false" aria-controls="collapseOrange">
+                            <%=dataKata.orange[0].Rank%>  (Pingan yodon, godan, Nahanchi shodan)
+                          </button>
+                        </h5>
+                      </div>
+                      <div id="collapseOrange" class="collapse" aria-labelledby="headingOrange" data-parent="#accordionKatas">
+                        <div class="card-body">
+                            <% for (let i = 0; i < dataKata.orange.length; i += 1) { %>
+                                <div class='embed-responsive embed-responsive-16by9'><%=dataKata.orange[i].Name%><%-dataKata.orange[i].URL%></div>
+                            <% } %>
+                        </div>
+                      </div>
+                    </div>
+    
+                    <div class="card">
+                        <div class="card-header" id="headingGreen">
+                          <h5 class="mb-0">
+                            <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseGreen" aria-expanded="false" aria-controls="collapseGreen">
+                              <%=dataKata.green[0].Rank%> (Jion, Saiffa)
+                            </button>
+                          </h5>
+                        </div>
+                        <div id="collapseGreen" class="collapse" aria-labelledby="headingGreen" data-parent="#accordionKatas">
+                          <div class="card-body">
+                            <% for (let i = 0; i < dataKata.green.length; i += 1) { %>
+                                <div class='embed-responsive embed-responsive-16by9'><%=dataKata.green[i].Name%><%-dataKata.green[i].URL%></div>
+                            <% } %>
+                          </div>
+                        </div>
+                      </div>
+    
+                      <div class="card">
+                        <div class="card-header" id="headingBlue">
+                          <h5 class="mb-0">
+                            <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseBlue" aria-expanded="false" aria-controls="collapseBlue">
+                              <%=dataKata.blue[0].Rank%> (Potsai dai, Chinto)
+                            </button>
+                          </h5>
+                        </div>
+                        <div id="collapseBlue" class="collapse" aria-labelledby="headingBlue" data-parent="#accordionKatas">
+                          <div class="card-body">
+                            <% for (let i = 0; i < dataKata.blue.length; i += 1) { %>
+                                <div class='embed-responsive embed-responsive-16by9'><%=dataKata.blue[i].Name%><%-dataKata.blue[i].URL%></div>
+                            <% } %>
+                          </div>
+                        </div>
+                      </div>
+    
+                      <div class="card">
+                        <div class="card-header" id="headingPurple">
+                          <h5 class="mb-0">
+                            <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapsePurple" aria-expanded="false" aria-controls="collapsePurple">
+                              <%=dataKata.purple[0].Rank%> (Unsa, Empi)
+                            </button>
+                          </h5>
+                        </div>
+                        <div id="collapsePurple" class="collapse" aria-labelledby="headingPurple" data-parent="#accordionKatas">
+                          <div class="card-body">
+                            <% for (let i = 0; i < dataKata.purple.length; i += 1) { %>
+                                <div class='embed-responsive embed-responsive-16by9'><%=dataKata.purple[i].Name%><%-dataKata.purple[i].URL%></div>
+                            <% } %>
+                          </div>
+                        </div>
+                      </div>
+    
+                      <div class="card">
+                        <div class="card-header" id="headingBrown3">
+                          <h5 class="mb-0">
+                            <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseBrown3" aria-expanded="false" aria-controls="collapseBrown3">
+                              <%=dataKata.brown3[0].Rank%> (Seisan, Sushi No Sho Bo, Gay Pa Sai)
+                            </button>
+                          </h5>
+                        </div>
+                        <div id="collapseBrown3" class="collapse" aria-labelledby="headingBrown3" data-parent="#accordionKatas">
+                          <div class="card-body">
+                            <% for (let i = 0; i < dataKata.brown3.length; i += 1) { %>
+                                <div class='embed-responsive embed-responsive-16by9'><%=dataKata.brown3[i].Name%><%-dataKata.brown3[i].URL%></div>
+                            <% } %>
+                          </div>
+                        </div>
+                      </div>
+    
+                      <div class="card">
+                        <div class="card-header" id="headingBrown2">
+                          <h5 class="mb-0">
+                            <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseBrown2" aria-expanded="false" aria-controls="collapseBrown2">
+                              <%=dataKata.brown2[0].Rank%> (Kusanku sho, Soea Sai)
+                            </button>
+                          </h5>
+                        </div>
+                        <div id="collapseBrown2" class="collapse" aria-labelledby="headingBrown2" data-parent="#accordionKatas">
+                          <div class="card-body">
+                            <% for (let i = 0; i < dataKata.brown2.length; i += 1) { %>
+                                <div class='embed-responsive embed-responsive-16by9'><%=dataKata.brown2[i].Name%><%-dataKata.brown2[i].URL%></div>
+                            <% } %>
+                          </div>
+                        </div>
+                      </div>
+    
+                      <div class="card">
+                        <div class="card-header" id="headingBrown1">
+                          <h5 class="mb-0">
+                            <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseBrown1" aria-expanded="false" aria-controls="collapseBrown1">
+                              <%=dataKata.brown1[0].Rank%> (Sakagawa Bo, Giokerin Sai)
+                            </button>
+                          </h5>
+                        </div>
+                        <div id="collapseBrown1" class="collapse" aria-labelledby="headingBrown1" data-parent="#accordionKatas">
+                          <div class="card-body">
+                            <% for (let i = 0; i < dataKata.brown1.length; i += 1) { %>
+                                <div class='embed-responsive embed-responsive-16by9'><%=dataKata.brown1[i].Name%><%-dataKata.brown1[i].URL%></div>
+                            <% } %>
+                          </div>
+                        </div>
+                      </div>
+    
+    
+                  </div> <!-- End of Accordion -->
+
+        </div><!-- End of kata -->
+
+        
+        <div id="terminology">
+            <div class="container-fluid">
+                <h2 class=''><%=Info[0].heading%></h2>
+                <h3><%=Info[0].description%></h3> 
+              <div class="accordion" id="accordionTerms">
+                <div class="card">
+                  <div class="card-header" id="headingProcedures">
+                    <h5 class="mb-0">
+                      <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseProcedures" aria-expanded="false" aria-controls="collapseProcedures">
+                        Class Procedures
+                      </button>
+                    </h5>
+                  </div>
+              
+                  <div id="collapseProcedures" class="collapse" aria-labelledby="headingProcedures" data-parent="#accordionKatas">
+                    <div class="card-body">
+                      <div class='row'>
+                        <div class='col col-3'><strong>English</strong></div>  
+                        <div class='col col-3'><strong>Japanese</strong></div>  
+                        <div class='col col-6'><strong>Description</strong> </div>    
+                      </div>
+                        <%for (let i = 0; i < Procedures.length; i++) { %>
+                        <div class='row'>
+                          <div class='col col-3'><%=Procedures[i].English%> </div>       
+                          <div class='col col-3'><%=Procedures[i].Japanese%> </div>  
+                          <div class='col col-6'><%=Procedures[i].description%> </div>  
+                        </div>
+                      <% } %>
+                    </div>
+                  </div>
+                </div>
+                <div class="card">
+                  <div class="card-header" id="headingBlock ">
+                    <h5 class="mb-0">
+                      <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseBlock " aria-expanded="false" aria-controls="collapseBlock ">
+                        Blocks
+                      </button>
+                    </h5>
+                  </div>
+                  <div id="collapseBlock " class="collapse" aria-labelledby="headingBlock " data-parent="#accordionKatas">
+                    <div class="card-body">
+                      <div class='row'>
+                        <div class='col col-3'><strong>English</strong></div>  
+                        <div class='col col-3'><strong>Japanese</strong></div>  
+                        <div class='col col-6'><strong>Description</strong> </div>    
+                      </div>
+                        <%for (let i = 0; i < Block.length; i++) { %>
+                        <div class='row'>
+                          <div class='col col-3'><%=Block[i].English%> </div>       
+                          <div class='col col-3'><%=Block[i].Japanese%> </div>  
+                          <div class='col col-6'><%=Block[i].description%> </div>  
+                        </div>
+                      <% } %>
+                    </div>
+                  </div>
+                </div>
+                <div class="card">
+                  <div class="card-header" id="headingStrike">
+                    <h5 class="mb-0">
+                      <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseStrike" aria-expanded="false" aria-controls="collapseStrike">
+                        Strikes
+                      </button>
+                    </h5>
+                  </div>
+                  <div id="collapseStrike" class="collapse" aria-labelledby="headingStrike" data-parent="#accordionKatas">
+                    <div class="card-body">
+                      <div class='row'>
+                        <div class='col col-3'><strong>English</strong></div>  
+                        <div class='col col-3'><strong>Japanese</strong></div>  
+                        <div class='col col-6'><strong>Description</strong> </div>    
+                      </div>
+                        <%for (let i = 0; i < Strike.length; i++) { %>
+                        <div class='row'>
+                          <div class='col col-3'><%=Strike[i].English%> </div>       
+                          <div class='col col-3'><%=Strike[i].Japanese%> </div>  
+                          <div class='col col-6'><%=Strike[i].description%> </div>  
+                        </div>
+                      <% } %>
+                    </div>
+                  </div>
+                </div>
+      
+                <div class="card">
+                    <div class="card-header" id="headingPunch">
+                      <h5 class="mb-0">
+                        <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapsePunch" aria-expanded="false" aria-controls="collapsePunch">
+                          Punches
+                        </button>
+                      </h5>
+                    </div>
+                    <div id="collapsePunch" class="collapse" aria-labelledby="headingPunch" data-parent="#accordionKatas">
+                      <div class="card-body">
+                        <div class='row'>
+                          <div class='col col-3'><strong>English</strong></div>  
+                          <div class='col col-3'><strong>Japanese</strong></div>  
+                          <div class='col col-6'><strong>Description</strong> </div>    
+                        </div>
+                          <%for (let i = 0; i < Punch.length; i++) { %>
+                          <div class='row'>
+                            <div class='col col-3'><%=Punch[i].English%> </div>       
+                            <div class='col col-3'><%=Punch[i].Japanese%> </div>  
+                            <div class='col col-6'><%=Punch[i].description%> </div>  
+                          </div>
+                        <% } %>
+                      </div>
+                    </div>
+                  </div>
+      
+                  <div class="card">
+                    <div class="card-header" id="headingStance">
+                      <h5 class="mb-0">
+                        <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseStance" aria-expanded="false" aria-controls="collapseStance">
+                          Stances
+                        </button>
+                      </h5>
+                    </div>
+                    <div id="collapseStance" class="collapse" aria-labelledby="headingStance" data-parent="#accordionKatas">
+                      <div class="card-body">
+                        <div class='row'>
+                          <div class='col col-3'><strong>English</strong></div>  
+                          <div class='col col-3'><strong>Japanese</strong></div>  
+                          <div class='col col-6'><strong>Description</strong> </div>    
+                        </div>
+                          <%for (let i = 0; i < Stance.length; i++) { %>
+                          <div class='row'>
+                            <div class='col col-3'><%=Stance[i].English%> </div>       
+                            <div class='col col-3'><%=Stance[i].Japanese%> </div>  
+                            <div class='col col-6'><%=Stance[i].description%> </div>  
+                          </div>
+                        <% } %>
+                      </div>
+                    </div>
+                  </div>
+      
+                  <div class="card">
+                    <div class="card-header" id="headingKick">
+                      <h5 class="mb-0">
+                        <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseKick" aria-expanded="false" aria-controls="collapseKick">
+                          Kicks
+                        </button>
+                      </h5>
+                    </div>
+                    <div id="collapseKick" class="collapse" aria-labelledby="headingKick" data-parent="#accordionKatas">
+                      <div class="card-body">
+                        <div class='row'>
+                          <div class='col col-3'><strong>English</strong></div>  
+                          <div class='col col-3'><strong>Japanese</strong></div>  
+                          <div class='col col-6'><strong>Description</strong> </div>    
+                        </div>
+                          <%for (let i = 0; i < Kick.length; i++) { %>
+                          <div class='row'>
+                            <div class='col col-3'><%=Kick[i].English%> </div>       
+                            <div class='col col-3'><%=Kick[i].Japanese%> </div>  
+                            <div class='col col-6'><%=Kick[i].description%> </div>  
+                          </div>
+                        <% } %>
+                      </div>
+                    </div>
+                  </div>
+      
+                  <div class="card">
+                    <div class="card-header" id="headingBody">
+                      <h5 class="mb-0">
+                        <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseBody" aria-expanded="false" aria-controls="collapseBody">
+                          Parts of Body
+                        </button>
+                      </h5>
+                    </div>
+                    <div id="collapseBody" class="collapse" aria-labelledby="headingBody" data-parent="#accordionKatas">
+                      <div class="card-body">
+                        <div class='row'>
+                          <div class='col col-3'><strong>English</strong></div>  
+                          <div class='col col-3'><strong>Japanese</strong></div>  
+                          <div class='col col-6'><strong>Description</strong> </div>    
+                        </div>
+                          <%for (let i = 0; i < Body.length; i++) { %>
+                          <div class='row'>
+                            <div class='col col-3'><%=Body[i].English%> </div>       
+                            <div class='col col-3'><%=Body[i].Japanese%> </div>  
+                            <div class='col col-6'><%=Body[i].description%> </div>  
+                          </div>
+                        <% } %>
+                      </div>
+                    </div>
+                  </div>
+      
+                  <div class="card">
+                    <div class="card-header" id="headingNumbers">
+                      <h5 class="mb-0">
+                        <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseNumbers" aria-expanded="false" aria-controls="collapseNumbers">
+                          Numbers
+                        </button>
+                      </h5>
+                    </div>
+                    <div id="collapseNumbers" class="collapse" aria-labelledby="headingNumbers" data-parent="#accordionKatas">
+                      <div class="card-body">
+                        <div class='row'>
+                          <div class='col col-3'><strong>English</strong></div>  
+                          <div class='col col-3'><strong>Japanese</strong></div>  
+                          <div class='col col-6'><strong>Description</strong> </div>    
+                        </div>
+                          <%for (let i = 0; i < Numbers.length; i++) { %>
+                          <div class='row'>
+                            <div class='col col-3'><%=Numbers[i].English%> </div>       
+                            <div class='col col-3'><%=Numbers[i].Japanese%> </div>  
+                            <div class='col col-6'><%=Numbers[i].description%> </div>  
+                          </div>
+                        <% } %>
+                      </div>
+                    </div>
+                  </div>
+      
+                  <div class="card">
+                    <div class="card-header" id="headingWeapon">
+                      <h5 class="mb-0">
+                        <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseWeapon" aria-expanded="false" aria-controls="collapseWeapon">
+                          Weapons
+                        </button>
+                      </h5>
+                    </div>
+                    <div id="collapseWeapon" class="collapse" aria-labelledby="headingWeapon" data-parent="#accordionKatas">
+                      <div class="card-body">
+                        <div class='row'>
+                          <div class='col col-3'><strong>English</strong></div>  
+                          <div class='col col-3'><strong>Japanese</strong></div>  
+                          <div class='col col-6'><strong>Description</strong> </div>    
+                        </div>
+                          <%for (let i = 0; i < Weapon.length; i++) { %>
+                          <div class='row'>
+                            <div class='col col-3'><%=Weapon[i].English%> </div>       
+                            <div class='col col-3'><%=Weapon[i].Japanese%> </div>  
+                            <div class='col col-6'><%=Weapon[i].description%> </div>  
+                          </div>
+                        <% } %>
+                      </div>
+                    </div>
+                  </div>
+      
+                  <div class="card">
+                    <div class="card-header" id="headingKata">
+                      <h5 class="mb-0">
+                        <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseKata" aria-expanded="false" aria-controls="collapseKata">
+                          Katas
+                        </button>
+                      </h5>
+                    </div>
+                    <div id="collapseKata" class="collapse" aria-labelledby="headingKata" data-parent="#accordionKatas">
+                      <div class="card-body">
+                        <div class='row'>
+                          <div class='col col-3'><strong>English</strong></div>  
+                          <div class='col col-3'><strong>Japanese</strong></div>  
+                          <div class='col col-6'><strong>Description</strong> </div>    
+                        </div>
+                          <%for (let i = 0; i < Kata.length; i++) { %>
+                          <div class='row'>
+                            <div class='col col-3'><%=Kata[i].English%> </div>       
+                            <div class='col col-3'><%=Kata[i].Japanese%> </div>  
+                            <div class='col col-6'><%=Kata[i].description%> </div>  
+                          </div>
+                        <% } %>
+                      </div>
+                    </div>
+                  </div>
+      
+                  <div class="card">
+                    <div class="card-header" id="headingGeneral">
+                      <h5 class="mb-0">
+                        <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseGeneral" aria-expanded="false" aria-controls="collapseGeneral">
+                          General
+                        </button>
+                      </h5>
+                    </div>
+                    <div id="collapseGeneral" class="collapse" aria-labelledby="headingGeneral" data-parent="#accordionKatas">
+                      <div class="card-body">
+                        <div class='row'>
+                          <div class='col col-3'><strong>English</strong></div>  
+                          <div class='col col-3'><strong>Japanese</strong></div>  
+                          <div class='col col-6'><strong>Description</strong> </div>    
+                        </div>
+                          <%for (let i = 0; i < General.length; i++) { %>
+                          <div class='row'>
+                            <div class='col col-3'><%=General[i].English%> </div>       
+                            <div class='col col-3'><%=General[i].Japanese%> </div>  
+                            <div class='col col-6'><%=General[i].description%> </div>  
+                          </div>
+                        <% } %>
+                      </div>
+                    </div>
+                  </div>
+      
+                  <div class="card">
+                    <div class="card-header" id="headingKumite">
+                      <h5 class="mb-0">
+                        <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseKumite" aria-expanded="false" aria-controls="collapseKumite">
+                          Kumite
+                        </button>
+                      </h5>
+                    </div>
+                    <div id="collapseKumite" class="collapse" aria-labelledby="headingKumite" data-parent="#accordionKatas">
+                      <div class="card-body">
+                        <div class='row'>
+                          <div class='col col-3'><strong>English</strong></div>  
+                          <div class='col col-3'><strong>Japanese</strong></div>  
+                          <div class='col col-6'><strong>Description</strong> </div>    
+                        </div>
+                          <%for (let i = 0; i < Kumite.length; i++) { %>
+                          <div class='row'>
+                            <div class='col col-3'><%=Kumite[i].English%> </div>       
+                            <div class='col col-3'><%=Kumite[i].Japanese%> </div>  
+                            <div class='col col-6'><%=Kumite[i].description%> </div>  
+                          </div>
+                        <% } %>
+                      </div>
+                    </div>
+                  </div>
+      
+              </div> <!-- End of Accordion -->
+
+        </div> <!-- End of Terms -->
+
+        <div id="library">
+            <div class="container-fluid">
+                <h2 class=''><%=dataBooks.title%></h2>
+                <h3 class=''><%=dataBooks.intro%></h3>
+                <div class='row'>
+                    <div class="col-1">
+                        <strong>Image</strong>
+                    </div>
+                    <div class="col">
+                        <strong>Title</strong>
+                    </div>
+                    <div class="col">
+                        <strong>Author</strong>
+                    </div>
+                    <div class="col-3">
+                        <strong>Description</strong>
+                    </div>
+                    <div class="col">
+                        <strong>Publisher</strong>
+                    </div>
+                    <div class="col">
+                        <strong>Misc</strong>
+                    </div>
+                </div>
+                <% for (let i = 0; i < dataBooks.booklist.length; i += 1) { %>
+                    <div class='row'>
+                        <div class="col-1">
+                            <img src='/images/books/<%=dataBooks.booklist[i].image%>' width="50px" height="50px">
+                        </div>
+                        <div class="col">
+                            <%=dataBooks.booklist[i].title%>
+                        </div>
+                        <div class="col">
+                            <%=dataBooks.booklist[i].author%>
+
+                        </div>
+                        <div class="col-3">
+                            <%=dataBooks.booklist[i].description%>
+
+                        </div>
+                        <div class="col">
+                            
+                            <%=dataBooks.booklist[i].publisher%>
+                        </div>
+                        <div class="col">
+                            <%=dataBooks.booklist[i].num%>
+                            <%=dataBooks.booklist[i].url%>
+                        </div>
+                    </div>
+                <% } %>
+            </div> 
+
+        </div> <!-- End of library -->
+
+        <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" 
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" 
+        crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" 
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" 
+        crossorigin="anonymous"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" 
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" 
+        crossorigin="anonymous"></script>
+    </body>
+</html>

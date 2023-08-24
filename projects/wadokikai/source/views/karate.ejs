@@ -1,0 +1,103 @@
+<html lang="en" xml:lang="en" xmlns= "http://www.w3.org/1999/xhtml">
+  <meta charset="UTF-8">
+  <meta name="google" content="notranslate">
+  <meta http-equiv="Content-Language" content="en">
+
+
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <meta name="description" content="Wado Ki Kai Karate, Alameda, California" />
+    <meta name="keywords" content="Karate, Wadokikai, Wado Ki Kai, to learn from all things" />
+    <meta name="Copyright" content="Copyright (c) 2021 wadokikai.com" />
+    <meta name="robots" content="all" />
+
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Special+Elite&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+    integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="shortcut icon" type="image/jpg" href="/images/favicon.ico"/>
+    <link href='/css/wadokikai.css' rel='stylesheet'>
+    <title>Wado Ki Kai - Home Page</title>
+  </head>
+
+
+  <body>
+    <img class='wkkbg' src="../images/wkkpatch22_med.png">
+    <nav class="container-fluid navbar navbar-fixed-top bg-primary navbar-dark">
+      <div class="container-fluid" >
+        <a class="navbar-brand d-none d-md-block " href="<%=navNuMain[0].URL%>">
+          <img class="nav-brand-img" src="/images/wkkpatch22_med.png" width='139px' heigth='137px' alt="">
+        </a>
+        <div class="navbar" id="navbarNavMarkup">
+          <div class="navbar-nav navbar-expand">
+            <ul class="nav navbar-nav justify-content-center">
+              <li class="nav-item"><a class="nav-link active" href="<%=navNuMain[0].URL%>"><%=navNuMain[0].Text%> <span class="sr-only">(current)</span></a></li>
+              <% for (let i = 1; i< navNuMain.length; i++) { %>
+                <% var link = 'Facebook Page'; %>
+                <% if ( navNuMain[i].Text === link ) { %>
+                  <li class="nav-item"><a class="nav-link" href="<%=navNuMain[i].URL%>" target="_blank">FB </a></li>
+                <% } else { %> 
+                  <li class="nav-item"><a class="nav-link" href="<%=navNuMain[i].URL%>"><%=navNuMain[i].Text%> </a></li>
+                <% } %>
+              <% } %>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </nav> 
+
+    <nav class="container-fluid navbar-expand sticky-top bg-primary navbar-light">
+      <div class="navbar-nav bg-primary justify-content-center"> 
+        <ul class="nav navbar-nav justify-content-center"></ul>
+          <li class="nav-item"><a class="nav-item nav-link active" href="<%=navNuHome[0].URL%>"><%=navNuHome[0].Text%> <span class="sr-only">(current)</span></a></li>
+        <% for(let i = 1; i<navNuHome.length; i++) { %>
+          <li class="nav-item"><a class="nav-item nav-link" href="<%=navNuHome[i].URL%>"><%=navNuHome[i].Text%> </a></li>
+        <% } %>
+      </div>
+    </nav>
+
+    <div class="container-fluid">
+        
+      <div id="overview" class="container-fluid"> 
+        <%- include('karateoverview.ejs') %>
+      </div>  <!-- Overview div   -->
+
+      <div id="wkkstyle" class="container-fluid"> 
+        <%- include('wkkstyle.ejs') %>      
+      </div>  <!-- wkk style div   -->
+
+      <div id="dojoprocedures" class="container-fluid">  
+        <%- include('dojoprocedures.ejs') %>  
+      </div>   <!-- dojo procedures div   -->
+
+    </div> <!-- entire page div   -->
+  
+    <footer class='footer container-fluid'>
+      <div class='row'>
+        <div class='col-12 footer'>
+        <p>WadoKiKai.com brought to you by Combative Sports web designs, its more than just a webpage <strong>it's a Knock Out!</strong>.</p>
+        <p>Graphics provided by Woopsieroo<a href='https://twitter.com/Woopsieroo' target='_blank'>Twitter</a> or <a href='https://instagram.com/woopsieroo' target='_blank'>Instagram</a></p>
+        </div>
+      </div>
+    </footer>
+            
+  </body>
+  <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+  <!-- <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" 
+  integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+  crossorigin="anonymous"></script> -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" 
+  integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" 
+  crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" 
+  integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" 
+  crossorigin="anonymous"></script>
+  <script src="js/common.js"></script> 
+  <script type="text/javascript"> 
+    var test = '<%- JSON.stringify(imageArray) %>';
+    setupSlideShow(test);
+  </script>
+      
+</html>

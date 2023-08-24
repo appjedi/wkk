@@ -1,0 +1,128 @@
+<html lang="en" xml:lang="en" xmlns= "http://www.w3.org/1999/xhtml">
+<meta charset="UTF-8">
+<meta name="google" content="notranslate">
+<meta http-equiv="Content-Language" content="en">
+    <head>
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <meta name="description" content="Wado Ki Kai Karate, Alameda, California" />
+      <meta name="keywords" content="Karate, Wadokikai, Wado Ki Kai, to learn from all things" />
+      <meta name="Copyright" content="Copyright (c) 2021 wadokikai.com" />
+      <meta name="robots" content="all" />
+
+      <link rel="preconnect" href="https://fonts.gstatic.com">
+      <link href="https://fonts.googleapis.com/css2?family=Special+Elite&display=swap" rel="stylesheet">
+      <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+      integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+      <link rel="shortcut icon" type="image/jpg" href="/images/favicon.ico"/>
+    </head>
+    <body>
+      <img class='wkkbg' src="../images/wkkpatch22_med.png">
+      <nav class="container-fluid navbar navbar-dark bg-primary">
+        <div>
+          <img src="/images/patch.png" class="d-inline-block align-top nav-brand-img" alt="">
+          <a class="navbar-brand navbarfont" href="<%=nav[0].URL%>"><%=title%></a>
+        </div>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+          <div class="navbar-nav ">
+            <a class="nav-item nav-link active" href="<%=nav[0].URL%>"><%=nav[0].homeText%> <span class="sr-only">(current)</span></a>
+            <% for(let i = 0; i<nav.length; i++) { %>
+                <a class="nav-item nav-link" href="<%=nav[i].URL%>"><%=nav[i].Text%> </a>
+            <% } %>
+          </div>
+        </div>
+      </nav>
+        <div class="container-fluid">
+            <div class='row p-2' >
+                <h1 class=''><%=data.title%></h1>
+            </div>  
+        </div>
+
+        <div class="container-fluid">
+            <div class='row p-2' >
+                <h3><%=data.subTitle%></h3>
+            </div>
+            <div class='p-2' >
+              <p><%-data.info%></p>
+            </div>
+            <div class='p-2' >
+              <p><h4><%=data.locationTitle%></h4></p>
+              <p><%=data.zoomInfo%></p>
+              <p><%=data.location%></p>
+            </div>
+            <div class='p-2' >
+              <p><h4><%=data.scheduleTitle%></h4></p>
+              <p><%=data.schedule%></p>
+            </div>
+            <div class='p-2' >
+              <p><h4><%=data.duesTitle%></h4></p>
+              <p><%=data.dues%></p>
+            </div>
+        </div>
+
+        <div class="container-fluid">
+          <form>
+            <div class="form-group">
+              <label for="formGroupFirstName">First Name</label>
+              <input type="text" class="form-control" id="formGroupFirstName" placeholder="First Name">
+            </div>
+            <div class="form-group">
+              <label for="formGroupLastName">Last Name</label>
+              <input type="text" class="form-control" id="formGroupLastName" placeholder="Last Name">
+            </div>
+            <div class="form-group">
+              <label for="InputEmail1">Email address</label>
+              <input type="email" class="form-control" id="InputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+              <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+            </div>
+            <div class="form-group">
+              <label for="formGroupPhone">Phone</label>
+              <input type="text" class="form-control" id="formGroupPhone" placeholder="First Name">
+              <small id="emailHelp" class="form-text text-muted">We'll never share your phone number with anyone else.</small>
+            </div>
+            <div class="form-group">
+              <label for="FormControlAge">Age</label>
+              <select class="form-control" id="FormControlAge">
+                <% for (let i = 5; i < 70; i++ ) {%>
+                <option><%=i%></option>
+                <% } %>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="formGroupParent">Parent or Legal Guardian name</label>
+              <input type="text" class="form-control" id="formGroupParent" placeholder="name">
+            </div>
+            <div class="form-group">
+              <label for="FormControlMessage"> Message</label>
+              <textarea class="form-control" id="FormControlMessage" rows="3"></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary">Send</button>
+          
+          </form>
+        </div>
+
+        
+        <footer class='footer container-fluid'>
+          <div class='row'>
+            <div class='col-12 footer'>
+            <p>WadoKiKai.com brought to you by Combative Sports web designs, its more than just a webpage <strong>it's a Knock Out!</strong>.</p>
+            <p>Graphics provided by Woopsieroo<a href='https://twitter.com/Woopsieroo' target='_blank'>Twitter</a> or <a href='https://instagram.com/woopsieroo' target='_blank'>Instagram</a></p>
+            </div>
+          </div>
+        </footer>
+            
+      </body>
+      <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" 
+      integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" 
+      crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" 
+      integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" 
+      crossorigin="anonymous"></script>
+      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" 
+      integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" 
+      crossorigin="anonymous"></script>
+      
+</html>
