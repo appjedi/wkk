@@ -1,170 +1,153 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <title>Page Title</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
 
-   
-    <script>
-      let students = <%- JSON.stringify(students)%>;
-      const levels = <%- JSON.stringify(levels)%>;
-      const GC_URL="http://localhost:3000/";
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Page Title</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
 
-      let dateId=getDateId(new Date());
 
-      function pageLoad() {
-        retrieve();
-        $("#dateId").val(dateId);
+  <script>
+    let students = <% - JSON.stringify(students) %>;
+    const levels = <% - JSON.stringify(levels) %>;
+    const GC_URL = "http://localhost:3000/";
+
+    let dateId = getDateId(new Date());
+
+    function pageLoad() {
+      retrieve();
+      $("#dateId").val(dateId);
+    }
+    function attend(cb, idx) {
+      students[idx].attended = students[idx].attended === 1 ? 0 : 1;
+      //alert(students[idx].name+"Attended.");
+    }
+    let GV_IDX = -1;
+    function edit(idx) {
+      GV_IDX = idx;
+      //alert(students[idx].name);
+      $("#fullName").val(students[idx].name);
+
+      $("#ParentGardian").val(students[idx].parentGuardian);
+      $("#phone").val(students[idx].phoneNumber);
+      $("#email").val(students[idx].email);
+
+      $("#form1").show();
+      $("#table1").hide();
+    }
+    function cancel() {
+      GV_IDX = -1;
+      $("#form1").hide();
+      $("#table1").show();
+    }
+    function save() {
+      localStorage.setItem("ATTENDANCE-ALAMEDA", JSON.stringify(students));
+    }
+    function retrieve() {
+      $("#form1").hide();
+      const temp = localStorage.getItem("ATTENDANCE-ALAMEDA");
+      if (temp) {
+        students = JSON.parse(temp);
       }
-      function attend(cb, idx)
-      {
-        students[idx].attended =  students[idx].attended ===1?0:1; 
-        //alert(students[idx].name+"Attended.");
-      }
-      let GV_IDX=-1;
-      function edit(idx) {
-        GV_IDX=idx;
-        //alert(students[idx].name);
-        $("#fullName").val(students[idx].name);
+      console.log(students);
 
-        $("#ParentGardian").val(students[idx].parentGuardian);
-        $("#phone").val(students[idx].phoneNumber);
-        $("#email").val(students[idx].email);
+      let rows = "";
+      students.forEach((row, i) => {
+        const checked = row.attended === 1 ? "checked" : "";
+        const tr = `<tr><td><a href='javascript:edit(${i})'>${row.name}</a></td><td>${row.rank}</td><td>${row.email}</td><td><input type='checkbox' ${checked} onClick='attend(this, ${i})'/></a></td></tr>`;
+        rows += tr;
+      });
 
-        $("#form1").show();
-        $("#table1").hide();
-      }
-      function cancel() {
-        GV_IDX=-1;
-        $("#form1").hide();
-        $("#table1").show();
-      }
-      function save()
-      {
-          localStorage.setItem("ATTENDANCE-ALAMEDA", JSON.stringify(students));
-      }
-      function retrieve ()
-      {
-          $("#form1").hide();
-          const temp = localStorage.getItem("ATTENDANCE-ALAMEDA");
-          if(temp)
-          {
-            students=JSON.parse(temp);
-          }
-          console.log(students);
+      $("#tbody1").html(rows);
+    }
+    async function send() {
+      /*
 
-          let rows = "";
-          students.forEach((row, i) => {
-            const checked = row.attended===1?"checked":"";
-            const tr = `<tr><td><a href='javascript:edit(${i})'>${row.name}</a></td><td>${row.rank}</td><td>${row.email}</td><td><input type='checkbox' ${checked} onClick='attend(this, ${i})'/></a></td></tr>`;
-            rows += tr;
-          });
-
-          $("#tbody1").html(rows);
+      */
+      const data = {
+        id: GV_IDX > -1 ? students[idx]._id : "$NEW",
+        name: $("#fullName").val(),
+        email: $("#email").val(),
+        phone: $("#phone").val(),
+        rank: $("#rand").val(),
+        startDate: $("#startDate").val(),
+        parentGuardian: $("#parentGuardian").val()
       }
-      async function send()
-      {
-        /*
+      console.log("Save Student:", data);
+      const resp = await fetch(GC_URL + "student", {
+        method: "post",
+        headers: {
+          'Content-Type': "application/json"
+        },
+        body: JSON.stringify(data)
+      })
+      const json = await resp.json();
+      console.log(json);
+    }
+    function getDateId(dt) {
+      const y = (dt.getYear() + 1900) * 10000;
+      const m = (dt.getMonth() + 1) * 100;
+      const d = dt.getDate();
+      const id = y + m + d;
+      return id;
+    }
+  </script>
+</head>
 
-        */
-        const data={
-          id: GV_IDX>-1?students[idx]._id:"$NEW",
-          name: $("#fullName").val(),
-          email: $("#email").val(),
-          phone: $("#phone").val(),
-          rank:  $("#rand").val(),
-          startDate:  $("#startDate").val(),
-          parentGuardian:$("#parentGuardian").val()
-        }
-        console.log("Save Student:", data);
-        const resp = await fetch (GC_URL+"student", {
-          method:"post",
-          headers:{
-            'Content-Type':"application/json"
-          },
-          body: JSON.stringify(data)
-        })
-        const json = await resp.json();
-        console.log(json);
-      }
-      function getDateId(dt)
-      {
-          const y = (dt.getYear()+1900)*10000;
-          const m = (dt.getMonth()+1) * 100;
-          const d = dt.getDate();
-          const id= y+m+d;
-          return id;
-      }
-    </script>
-  </head>
-  <body onload="pageLoad()">
-    <h3>Attendance for <span id='dojoId'></span></h3>
-    <div id="divHeader">
-      <input type="text" id="dateId"/>
-      <button onClick="save()">Save</button>
-      <button onClick="retrieve()">Retrieve</button>
-      <button onClick="send()">Send</button>
+<body onload="pageLoad()">
+  <h3>Students EJS</h3>
+  <h3>Attendance for <span id='dojoId'></span></h3>
+  <div id="divHeader">
+    <input type="text" id="dateId" />
+    <button onClick="save()">Save</button>
+    <button onClick="retrieve()">Retrieve</button>
+    <button onClick="send()">Send</button>
 
-    </div>
-    <table id="table1" border="1">
-      <tr>
-        <th>Name</th>
-        <th>Rank</th>
-        <th>Email</th>
-        <th>Attended</th>
-      </tr>
-      <tbody id="tbody1"></tbody>
-    </table>
-    <div id="form1">
-      <p>
-        <input
-          type="text"
-          name="fullName"
-          id="fullName"
-          placeholder="Full Name"
-        />
-      </p>
-      <p>
-        <input
-          type="text"
-          name="parentGuardian"
-          id="parentGuardian"
-          placeholder="Parent/Gardian"
-        />
-      </p>
-      <p><input type="email" name="email" id="email" placeholder="email" /></p>
-      <p><input type="text" name="phone" id="phone" placeholder="phone" /></p>
+  </div>
+  <table id="table1" border="1">
+    <tr>
+      <th>Name</th>
+      <th>Rank</th>
+      <th>Email</th>
+      <th>Attended</th>
+    </tr>
+    <tbody id="tbody1"></tbody>
+  </table>
+  <div id="form1">
+    <p>
+      <input type="text" name="fullName" id="fullName" placeholder="Full Name" />
+    </p>
+    <p>
+      <input type="text" name="parentGuardian" id="parentGuardian" placeholder="Parent/Gardian" />
+    </p>
+    <p><input type="email" name="email" id="email" placeholder="email" /></p>
+    <p><input type="text" name="phone" id="phone" placeholder="phone" /></p>
 
-      <p>
-        <select id="'rank" name="rank">
-          <option value="0">Rank</option>
-          <option value="1">White</option>
-          <option value="2">Yellow</option>
-          <option value="3">Orange</option>
-          <option value="4">Green</option>
-          <option value="5">Blue</option>
-          <option value="6">Purple</option>
-          <option value="7">Brown 3rd kyu</option>
-          <option value="9">Brown 2nd kyu</option>
-          <option value="9">Brown 1st kyu</option>
-          <option value="10">Black Shodan</option>
-          <option value="11">Black Nidan</option>
-          <option value="12">Black Sandan</option>
-        </select>
-      </p>
-      <p>
-        <input
-          type="date"
-          name="startDate"
-          id="startDate"
-          placeholder="startDate"
-        />
-      </p>
-      <p><button id="btnSave" onClick="save()">Add</button><button id="btnCancel" onClick="cancel()">Cancel</button></p>
+    <p>
+      <select id="'rank" name="rank">
+        <option value="0">Rank</option>
+        <option value="1">White</option>
+        <option value="2">Yellow</option>
+        <option value="3">Orange</option>
+        <option value="4">Green</option>
+        <option value="5">Blue</option>
+        <option value="6">Purple</option>
+        <option value="7">Brown 3rd kyu</option>
+        <option value="9">Brown 2nd kyu</option>
+        <option value="9">Brown 1st kyu</option>
+        <option value="10">Black Shodan</option>
+        <option value="11">Black Nidan</option>
+        <option value="12">Black Sandan</option>
+      </select>
+    </p>
+    <p>
+      <input type="date" name="startDate" id="startDate" placeholder="startDate" />
+    </p>
+    <p><button id="btnSave" onClick="save()">Add</button><button id="btnCancel" onClick="cancel()">Cancel</button></p>
     </form>
   </div>
+
 </html>
