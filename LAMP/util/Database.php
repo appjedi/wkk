@@ -1,6 +1,7 @@
 <?php
 
-class Database {
+class Database
+{
 
     //http://localhost:8888/phpMyAdmin
 
@@ -13,17 +14,17 @@ class Database {
     private $admin = "java1234";
     private $os = "LIN";
 
-    public function __construct($args = null) {
+    public function __construct($args = null)
+    {
         //*Read connection infomration from file: database.txt
         $this->os = strtoupper(substr(PHP_OS, 0, 3));
-        if ($args==9)
-        {
-             $this->dbh = new PDO('sqlite:wkk.db');
-             return;
+        if ($args == 9) {
+            $this->dbh = new PDO('sqlite:wkk.db');
+            return;
         }
         //$args = "2";
         try {
-           
+
             if ($args != null)
                 if (strrpos($args, "~") > 0)
                     list($this->dsn, $this->usr, $this->pwd, $this->admin) = explode("~", $args);
@@ -46,7 +47,8 @@ class Database {
         }
     }
 
-    public function connect($id) {
+    public function connect($id)
+    {
         switch ($id) {
             case 1:
                 //echo "<br/><br/>connect 1<br/><br/>";
@@ -57,9 +59,9 @@ class Database {
             case 2:
                 //$dbh = new PDO('mysql:host=localhost;dbname=test', $user, $pass);
                 $this->dsn = "mysql:dbname=appjedin_timslist;host=localhost;port=3306";
-                $this->usr ="appjedin_clark";
-                $this->pwd ="ClarkData$2020";
-                break;  
+                $this->usr = "appjedin_clark";
+                $this->pwd = "ClarkData$2020";
+                break;
             case 3:
                 //http://localhost:8888/phpMyAdmin
                 $this->dsn = "mysql:dbname=symto;host=localhost;port=3306";
@@ -78,7 +80,8 @@ class Database {
         $this->admin = "roxboro";
     }
 
-    public function getNewInstance($db) {
+    public function getNewInstance($db)
+    {
         if (strrpos($db, "~"))
             list($dsn, $usr, $pwd, $admin) = explode("~", $db);
         else {
@@ -111,32 +114,35 @@ class Database {
         return $new;
     }
 
-    public function prepare($sql) {
+    public function prepare($sql)
+    {
         $this->stmt = $this->dbh->prepare($sql);
         return $this->stmt;
     }
 
-    public function validate($array) {
+    public function validate($array)
+    {
         $keys = array_keys($array);
         foreach ($keys as $key) {
             $array[$key] = str_replace("'", "`", $array[$key]);
         }
         return $array;
     }
-    public function callproc($sp, $values=null)
+    public function callproc($sp, $values = null)
     {
         try {
             $this->stmt = $this->dbh->prepare($sql);
             $this->stmt->execute($values);
-            $rows=$this->stmt-fetchAll();
-    
-            return $rows;   
-        }catch (PDOException $ex){
+            $rows = $this->stmt->fetchAll();
+
+            return $rows;
+        } catch (PDOException $ex) {
             echo "callproc.ERROR";
             echo $ex;
         }
     }
-    public function jQuerySet($array) {
+    public function jQuerySet($array)
+    {
         $keys = array_keys($array);
         $str = "";
         foreach ($keys as $key) {
@@ -147,7 +153,8 @@ class Database {
         return $str;
     }
 
-    public function htmlInput($array, $type) {
+    public function htmlInput($array, $type)
+    {
         $keys = array_keys($array);
         $str = "";
         foreach ($keys as $key) {
@@ -158,11 +165,13 @@ class Database {
         return $str;
     }
 
-    public function call($sql) {
+    public function call($sql)
+    {
         return $this->query("call $sql");
     }
 
-    public function execute($sql = null) {
+    public function execute($sql = null)
+    {
         try {
             if ($sql != null)
                 $this->stmt = $this->dbh->prepare($sql);
@@ -183,11 +192,13 @@ class Database {
         }
     }
 
-    public function exec() {
+    public function exec()
+    {
         return $this->stmt->execute(); //or die (implode(':', $this->stmt->errorInfo()));
     }
 
-    public function query($sql) {
+    public function query($sql)
+    {
         try {
             //echo $sql;
             $this->stmt = $this->dbh->prepare($sql);
@@ -199,11 +210,13 @@ class Database {
         }
     }
 
-    public function rowCount() {
+    public function rowCount()
+    {
         return $this->stmt->rowCount();
     }
 
-    public function fetch() {
+    public function fetch()
+    {
         try {
             return $this->stmt->fetch();
         } catch (PDOException $e) {
@@ -211,17 +224,19 @@ class Database {
         }
     }
 
-    public function isAdmin($pwd) {
+    public function isAdmin($pwd)
+    {
         return $pwd == "wkk2020!";
     }
-    public function json ($sql)
+    public function json($sql)
     {
         $statement = $this->dbh->prepare($sql);
         $statement->execute();
         $results = $statement->fetchAll(PDO::FETCH_ASSOC);
         return json_encode($results);
     }
-    public function jsonOLD($sql, $arr = 1, $firstRow = "", $nl = "") {
+    public function jsonOLD($sql, $arr = 1, $firstRow = "", $nl = "")
+    {
         $stmt = $this->query($sql);
         if ($stmt->rowCount() == 0)
             return null;
@@ -247,7 +262,8 @@ class Database {
         return $retval;
     }
 
-    function toJson($arr) {
+    function toJson($arr)
+    {
         $ct = count($arr);
         $retval = "[";
         foreach ($arr as &$row) {
@@ -265,7 +281,8 @@ class Database {
         return $retval . "]";
     }
 
-    public function htmlTable($sql, $arr = 1, $firstRow = "") {
+    public function htmlTable($sql, $arr = 1, $firstRow = "")
+    {
         $stmt = $this->query($sql);
         if ($stmt->rowCount() == 0)
             return null;
@@ -294,7 +311,8 @@ class Database {
         return "$retval</table>";
     }
 
-    public function jsan($sql, $header = '', $arr = 1) {
+    public function jsan($sql, $header = '', $arr = 1)
+    {
         $stmt = $this->query($sql);
         if ($stmt->rowCount() == 0)
             return null;
@@ -318,15 +336,18 @@ class Database {
         return $retval;
     }
 
-    public function logger($lvl, $msg) {
+    public function logger($lvl, $msg)
+    {
         $this->execute("INSERT INTO logger(log_date, level, message) VALUES(SYSDATE(), $lvl, '$msg')");
     }
 
-    public function getOptions($id) {
+    public function getOptions($id)
+    {
         return $this->json("SELECT code, label, code as id FROM select_options WHERE status=1 AND group_id=$id ORDER BY sort_order");
     }
 
-    public function points($act, $uid, $source, $sourceText = '', $pts = 1) {
+    public function points($act, $uid, $source, $sourceText = '', $pts = 1)
+    {
         /*
          * System:
          * 1. ajax.php.
@@ -335,8 +356,8 @@ class Database {
          * 4. intake.php.
          */
         $query = "INSERT INTO points (point_dt, user_id, action_id, source, points, source_text) "
-                . "VALUES (SYSDATE(), $uid, $act, $source,$pts,'$sourceText')";
-//echo $query;
+            . "VALUES (SYSDATE(), $uid, $act, $source,$pts,'$sourceText')";
+        //echo $query;
         try {
             $this->execute($query);
         } catch (Exception $ex) {
@@ -344,7 +365,8 @@ class Database {
         }
     }
 
-    public function copyFrom($from, $tbl, $tbl2 = null) {
+    public function copyFrom($from, $tbl, $tbl2 = null)
+    {
         try {
             $db = $this->getNewInstance($from);
             echo "copy table: $tbl";
@@ -385,7 +407,8 @@ class Database {
         }
     }
 
-    public function loginId($user) {
+    public function loginId($user)
+    {
         $agent = "IE"; //$_SERVER['HTTP_USER_AGENT'];
 
         $jsonUser = "";
@@ -402,13 +425,14 @@ class Database {
         $un = $row['username'];
         //echo "found: $un";
         $sql = "INSERT INTO user_log (username, agent, login_date, status) VALUES('$un','$agent',SYSDATE(),1)";
-//        echo $sql;
+        //        echo $sql;
         $this->execute($sql);
 
         return $row;
     }
 
-    public function login($user, $pwd = "", $roleId = 1) {
+    public function login($user, $pwd = "", $roleId = 1)
+    {
 
         $agent = $_SERVER['HTTP_USER_AGENT'];
         $jsonUser = "";
@@ -427,74 +451,85 @@ class Database {
         $row = $stmt->fetch(PDO::FETCH_ASSOC);
         $un = $row['username'];
         $sql = "INSERT INTO user_log (username, agent, login_date, status) VALUES('$un','$agent',SYSDATE(),1)";
-//        echo $sql;
+        //        echo $sql;
         $this->execute($sql);
 
         return $row;
     }
 
-    public function getUser($id) {
+    public function getUser($id)
+    {
         if ($id == null) {
             $jsonUser = $_SESSION["webappUserObj"];
             if (!$jsonUser)
                 return null;
             return $jsonUser;
-        }else {
+        } else {
             return $this->json("SELECT * FROM view_users WHERE user_id=$id", 0);
         }
     }
 
-    public function getUserRow($id) {
+    public function getUserRow($id)
+    {
         if ($id == null) {
             $jsonUser = $_SESSION["webappUserObj"];
             if (!$jsonUser)
                 return null;
             return $jsonUser;
-        }else {
+        } else {
             return $this->query("SELECT * FROM view_users WHERE user_id=$id", 0)->fetch(PDO::FETCH_ASSOC);
         }
     }
 
-    public function getUserArray($id) {
+    public function getUserArray($id)
+    {
         if ($id == null) {
             $jsonUser = $_SESSION["webappUserObj"];
             if (!$jsonUser)
                 return null;
             return $jsonUser;
-        }else {
+        } else {
             return $this->json("SELECT user_id As id, username, lastname, firstname, email,phone FROM users WHERE user_id=$id", 0);
         }
     }
 
-    public function getAdmin() {
+    public function getAdmin()
+    {
         return $this->admin;
     }
 
-    public function errorInfo() {
+    public function errorInfo()
+    {
         return $this->stmt->errorInfo();
     }
 
-    public function setInt($index, $value) {
+    public function setInt($index, $value)
+    {
         $this->stmt->bindParam($index, $value, PDO::PARAM_INT);
     }
 
-    public function setString($index, $value) {
+    public function setString($index, $value)
+    {
         $this->stmt->bindParam($index, $value, PDO::PARAM_STR, 60);
     }
 
-    public function setBool($index, $value) {
+    public function setBool($index, $value)
+    {
         $this->stmt->bindParam($index, $value, PDO::PARAM_BOOL);
     }
 
-    public function setLob($index, $value) {
+    public function setLob($index, $value)
+    {
         $this->stmt->bindParam($index, $value, PDO::PARAM_LOB);
     }
 
-    public function authorized($pwd) {
+    public function authorized($pwd)
+    {
         return $pwd == $this->admin;
     }
 
-    public function getStatesAsJson() {
+    public function getStatesAsJson()
+    {
         return '{code:"AL",text:"Alabama"},
             {code:"AK",text:"Alaska"},
             {code:"AZ",text:"Arizona"},
@@ -548,19 +583,19 @@ class Database {
             {code:"WY",text:"Wyoming"}}';
     }
 
-    public function close() {
+    public function close()
+    {
         $this->dbh = null;
         //mysql_close( $dbh );
     }
 
-    public function error($msg) {
+    public function error($msg)
+    {
         die("<h1 align='center'><font color='red'>$msg!</font></h1>");
     }
 
-    public function message($msg) {
+    public function message($msg)
+    {
         echo $msg;
     }
-
 }
-
-?>

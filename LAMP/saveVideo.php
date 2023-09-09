@@ -53,7 +53,7 @@ echo "one</p>";
     //echo $sql;
     echo "333</p>";
 
-    $dao->callproce($sp, $values);
+    $dao->callproc($sp, $values);
     echo "444</p>";
 
     if ($reorder==1)
@@ -79,4 +79,3 @@ echo "one</p>";
     echo "-1~Missing data [$lname] [$email]!\n";
 }
 // echo "<h2><a href='http://www.wadokikai.org'>Return to main page</a></h2>";
-?>
