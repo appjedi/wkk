@@ -35,46 +35,15 @@ if ($title && $url) {
     $dao = new Database(1);
 
     $sql = null;
-    $sp = "call usp_video_save (?,?,?,?,?,?,?,?,?,?,?)";
+    $sp = "call usp_video_save (?,?,?,?,?,?,?,?,?,?,?,?)";
     $source = 1;
     $category = 1;
-    $values = [$videoId, $url, $dateOfVideo, $title, $source, $hostedBy, $category, $section, $eventId, $status, $sortOrder];
+    $values = [$videoId, $url, $dateOfVideo, $title, $source, $hostedBy, $category, $section, $eventId, $status, $sortOrder, $reorder];
 
-
-    /*
-    if ($videoId == 0) {
-        $sql = " INSERT INTO videos (title,url,video_date, sort_order, status,hosted_by,section_id,event_id, inserted)
-              VALUES ('$title', '$url', '$dateOfVideo',$sortOrder,$status,$hostedBy,$section,$eventId,SYSDATE())";
-       // echo $sql;
-    } else {
-        $sql = "UPDATE videos SET title='$title',url='$url',video_date='$dateOfVideo', sort_order=$sortOrder, status=$status,"
-                . "hosted_by=$hostedBy,section_id=$section,event_id=$eventId WHERE id=$videoId";
-    }
-    */
-    //echo $sql;
-
-
-    $dao->callproc($sp, $values);
-
-
-    if ($reorder == 1)
-        $dao->execute("UPDATE videos SET sort_order=sort_order+1 WHERE section=$section");
-
-    echo "{status:1, message:'Saved id: $videoId!'}";
-    /*
-      $url="http://timlin.net/wkk/send2wkk.php?token=Limerick&email=$email&fullname=$fullname&phone=$phone";
-      $msg = file_get_contents($url);
-      echo $msg;
-     * 
-     */
-    //
-    // Connect to MySQL
-    /*
-      $sql = "insert into contact_wkk (email, last_name, first_name, phone, comments, subject, dojo_id, sensei_id) " .
-      " values ('$email', '$fullname', '$dojo', '$phone', '$message', '$subjiect', '$dojo', $contactId);";
-     */
-
-    //echo $sql;
+    $rows = $dao->callproc($sp, $values);
+    $json = json_encode($rows);
+    echo $json;
+    //echo "{status:1, message:'Saved id: $videoId!'}";
 } else {
 
     echo "-1~Missing data [$lname] [$email]!\n";
