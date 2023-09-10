@@ -2,7 +2,8 @@
 
 header('Access-Control-Allow-Origin: *');
 
-function error_exit($s) {
+function error_exit($s)
+{
     echo "Error: $s";
     exit();
 }
@@ -15,7 +16,7 @@ include_once "util/Database.php";
   $url="https://www.youtube.com/embed/";
   $dateOfVideo="2020-04-01";
  */
-$sort_order = 0;
+$sortOrder = 0;
 $status = 1;
 $hostedBy = 1;
 $section = 1;
@@ -32,13 +33,13 @@ if ($title && $url) {
     //$url = "https://www.youtube.com/embed/$code";
 
     $dao = new Database(1);
-echo "one</p>";
+
     $sql = null;
     $sp = "call usp_video_save (?,?,?,?,?,?,?,?,?,?,?)";
-    $source=1;
-    $category=1;
-    $values = [$videoId,$url,$dateOfVideo,$title,$source,$hostedBy,$category,$section,$eventId,$status,$sort_order];
-    echo "two</p>";
+    $source = 1;
+    $category = 1;
+    $values = [$videoId, $url, $dateOfVideo, $title, $source, $hostedBy, $category, $section, $eventId, $status, $sortOrder];
+
 
     /*
     if ($videoId == 0) {
@@ -51,15 +52,15 @@ echo "one</p>";
     }
     */
     //echo $sql;
-    echo "333</p>";
+
 
     $dao->callproc($sp, $values);
-    echo "444</p>";
 
-    if ($reorder==1)
+
+    if ($reorder == 1)
         $dao->execute("UPDATE videos SET sort_order=sort_order+1 WHERE section=$section");
 
-    echo "1~Saved id: $videoId!";
+    echo "{status:1, message:'Saved id: $videoId!'}";
     /*
       $url="http://timlin.net/wkk/send2wkk.php?token=Limerick&email=$email&fullname=$fullname&phone=$phone";
       $msg = file_get_contents($url);
@@ -73,7 +74,7 @@ echo "one</p>";
       " values ('$email', '$fullname', '$dojo', '$phone', '$message', '$subjiect', '$dojo', $contactId);";
      */
 
-//echo $sql;
+    //echo $sql;
 } else {
 
     echo "-1~Missing data [$lname] [$email]!\n";

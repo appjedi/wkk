@@ -131,7 +131,7 @@ class Database
     public function callproc($sp, $values = null)
     {
         try {
-            $this->stmt = $this->dbh->prepare($sql);
+            $this->stmt = $this->dbh->prepare($sp);
             $this->stmt->execute($values);
             $rows = $this->stmt->fetchAll();
 
