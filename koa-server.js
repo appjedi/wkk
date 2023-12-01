@@ -18,7 +18,7 @@ const connection = new MySql(GC_CONNECTIONS[GC_CONN_IDX]);
 
 const app = new Koa();
 const router = new KoaRouter();
-const PORT = 3000;
+const PORT = 4000;
 //app.use(session());
 app.keys = ['Shh, its a secret!'];
 app.use(session(app)); 

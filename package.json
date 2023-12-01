@@ -1,0 +1,14 @@
+{
+  "dependencies": {
+    "dotenv": "^16.3.1",
+    "koa": "^2.14.2",
+    "koa-bodyparser": "^4.4.1",
+    "koa-ejs": "^4.3.0",
+    "koa-json": "^2.0.2",
+    "koa-router": "^12.0.0",
+    "koa-session": "^6.4.0",
+    "mongodb": "^6.0.0",
+    "path": "^0.12.7",
+    "sync-mysql": "^3.0.1"
+  }
+}
