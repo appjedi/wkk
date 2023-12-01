@@ -24,7 +24,7 @@ if (!$data)
     <script src='scripts/index.js'></script>
     <script>
         var videos = <?php echo $data ?>;
-
+console.log(videos);
         $(document).ready(function() {
             $("#divEditForm").hide();
             //$("#divTopLogo").hide();
